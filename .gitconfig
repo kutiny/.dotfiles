@@ -1,0 +1,5 @@
+[include]
+    path = ~/.dotfiles/pvt/.gitconfig
+
+[alias]
+	lod = log --oneline --decorate --graph
