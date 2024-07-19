@@ -1,13 +1,12 @@
 return {
     'kutiny/gcompile.nvim',
-    event = 'VeryLazy',
-    config = function()
-        local mod = require('gcompile')
-        mod.setup({
-            split = 'vertical'
-        })
-
-        vim.keymap.set("n", "<Leader>rr", ":GCompileAndRun<CR>")
-        vim.keymap.set("n", "<Leader>re", ":GCompileRunAndExit<CR>")
-    end
+    lazy = true,
+    opts = {
+        split = 'horizontal',
+    },
+    keys = {
+        { "<leader>rr", "<cmd>GCompileAndRun<CR>",     desc = "Compile and run" },
+        { "<leader>re", "<cmd>GCompileRunAndExit<CR>", desc = "Compile, run and exit" },
+    },
+    ft = { "cpp" },
 }

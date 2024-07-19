@@ -110,7 +110,7 @@ return {
                     {
                         desc = ' kittyconf',
                         group = 'KittyConf',
-                        action = 'e ~/.dotfiles/kitty/kitty.conf',
+                        action = 'e ~/.dotfiles/pub/kitty/kitty.conf',
                         key = 'k',
                     },
                 },

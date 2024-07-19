@@ -36,7 +36,7 @@ return {
                 lualine_c = { 'filename' },
                 lualine_x = { 'encoding', 'fileformat', 'filetype' },
                 lualine_y = { 'progress' },
-                lualine_z = { {'location', separator = { right = '' }, left_padding = 2 } }
+                lualine_z = { { 'location', separator = { right = '' }, left_padding = 2 } }
             },
             inactive_sections = {
                 lualine_a = {},

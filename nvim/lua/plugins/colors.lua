@@ -3,32 +3,30 @@ return {
         'kutiny/colors.nvim',
         branch = 'main',
         -- dev = true,
-        config = function()
-            local colors = require('colors')
-            colors.setup({
-                enable_transparent_bg = true,
-                fallback_theme_name = 'evergarden',
-                hide_builtins = true,
-                ignore_themes = {
-                    'catppuccin-latte',
-                    'catppuccin-frappe',
-                    'catppuccin-macchiato',
-                    'catppuccin-mocha',
-                    'rose-pine-dawn',
-                    'rose-pine-moon',
-                    'rose-pine-main',
-                    'dracula-soft',
-                },
-                border = 'rounded',
-                title = ' Themes ',
-                title_position = 'center',
-                height = 10,
-                width = 60,
-                callback_fn = function()
-                    require('lualine').setup()
-                end
-            })
-
+        opts = {
+            enable_transparent_bg = true,
+            fallback_theme_name = 'evergarden',
+            hide_builtins = true,
+            ignore_themes = {
+                'catppuccin-latte',
+                'catppuccin-frappe',
+                'catppuccin-macchiato',
+                'catppuccin-mocha',
+                'rose-pine-dawn',
+                'rose-pine-moon',
+                'rose-pine-main',
+                'dracula-soft',
+            },
+            border = 'rounded',
+            title = ' Themes ',
+            title_position = 'center',
+            height = 10,
+            width = 60,
+            callback_fn = function()
+                -- require('lualine').setup()
+            end
+        },
+        init = function()
             vim.keymap.set('n', '<leader>t', ':ShowThemes<CR>', { silent = true })
         end
     },

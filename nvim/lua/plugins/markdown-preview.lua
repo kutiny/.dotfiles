@@ -1,8 +1,8 @@
 return {
     "iamcco/markdown-preview.nvim",
+    lazy = true,
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     build = "cd app && npm install",
-    event = 'VeryLazy',
     init = function()
         vim.g.mkdp_filetypes = { "markdown" }
         -- Markdown preview
