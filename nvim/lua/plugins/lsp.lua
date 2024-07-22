@@ -1,17 +1,17 @@
 return {
     'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
+    branch = 'v3.x',
     event = 'VeryLazy',
     dependencies = {
         -- LSP Support
-        { 'neovim/nvim-lspconfig' },           -- Required
-        { 'williamboman/mason.nvim' },         -- Optional
+        { 'neovim/nvim-lspconfig' },             -- Required
+        { 'williamboman/mason.nvim' },           -- Optional
         { 'williamboman/mason-lspconfig.nvim' }, -- Optional
         -- Autocompletion
-        { 'hrsh7th/nvim-cmp' },                -- Required
-        { 'hrsh7th/cmp-nvim-lsp' },            -- Required
-        { 'L3MON4D3/LuaSnip' },                -- Required
-        { 'b0o/schemastore.nvim' }             -- schema validators
+        { 'hrsh7th/nvim-cmp' },                  -- Required
+        { 'hrsh7th/cmp-nvim-lsp' },              -- Required
+        { 'L3MON4D3/LuaSnip' },                  -- Required
+        { 'b0o/schemastore.nvim' }               -- schema validators
     },
     config = function()
         local lsp = require('lsp-zero').preset({})

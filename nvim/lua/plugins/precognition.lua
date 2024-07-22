@@ -2,7 +2,7 @@ return {
     "tris203/precognition.nvim",
     event = 'VeryLazy',
     enabled = false,
-    config = {
+    opts = {
         startVisible = true,
         showBlankVirtLine = true,
         hints = {

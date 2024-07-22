@@ -1,9 +1,9 @@
 return {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    event = 'VeryLazy',
+    event = { 'BufReadPre', 'BufNewFile' },
     config = function()
-        require'nvim-treesitter.configs'.setup {
+        require 'nvim-treesitter.configs'.setup {
             ensure_installed = { "javascript", "typescript", "c", "lua", "vim", "vimdoc", "query", "comment" },
             sync_install = false,
             -- Automatically install missing parsers when entering buffer
@@ -21,7 +21,7 @@ return {
                 additional_vim_regex_highlighting = false,
             },
             folding = {
-                enable = false               -- Habilitar plegado de código
+                enable = false -- Habilitar plegado de código
             }
         }
     end
