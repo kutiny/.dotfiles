@@ -2,7 +2,7 @@ return {
     {
         'kutiny/colors.nvim',
         branch = 'main',
-        -- dev = true,
+        dev = false,
         opts = {
             enable_transparent_bg = true,
             fallback_theme_name = 'evergarden',
@@ -22,18 +22,16 @@ return {
             title_position = 'center',
             height = 10,
             width = 60,
-            callback_fn = function()
-                -- require('lualine').setup()
-            end
         },
         init = function()
-            vim.keymap.set('n', '<leader>t', ':ShowThemes<CR>', { silent = true })
-        end
+            vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>ShowThemes<CR>", { silent = true })
+        end,
     },
     {
         'catppuccin/nvim',
         name = 'catppuccin',
-        priority = 1000,
+        lazy = true,
+        event = 'UIEnter',
         config = function()
             require('catppuccin').setup({
                 flavour = "auto", -- latte, frappe, macchiato, mocha
@@ -88,6 +86,8 @@ return {
         'Mofiqul/dracula.nvim',
         name = 'dracula',
         priority = 1000,
+        lazy = true,
+        event = 'UIEnter',
         config = function()
             local dracula = require("dracula")
             dracula.setup({
@@ -146,6 +146,8 @@ return {
     {
         'Mofiqul/vscode.nvim',
         priority = 1000,
+        lazy = true,
+        event = 'UIEnter',
         config = function()
             local c = require('vscode.colors').get_colors()
             require("vscode").setup({
@@ -169,6 +171,8 @@ return {
     {
         'comfysage/evergarden',
         priority = 1000,
+        lazy = true,
+        event = 'UIEnter',
         opts = {
             transparent_background = true,
             contrast_dark = 'hard', -- 'hard'|'medium'|'soft'
@@ -179,6 +183,8 @@ return {
     {
         'rose-pine/neovim',
         priority = 1000,
+        lazy = true,
+        event = 'UIEnter',
         config = function()
             require("rose-pine").setup({
                 variant = "auto",      -- auto, main, moon, or dawn

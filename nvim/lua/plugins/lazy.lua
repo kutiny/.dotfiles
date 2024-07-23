@@ -4,4 +4,5 @@ return {
     { 'nvim-tree/nvim-web-devicons',    lazy = true },
     { 'ntpeters/vim-better-whitespace', event = { 'BufReadPre', 'BufNewFile' } },
     { 'prettier/vim-prettier',          event = { 'BufReadPre', 'BufNewFile' } },
+    { 'dstein64/vim-startuptime',       lazy = false },
 }
