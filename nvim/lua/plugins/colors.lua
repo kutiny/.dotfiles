@@ -22,6 +22,10 @@ return {
             title_position = 'center',
             height = 10,
             width = 60,
+            callback_fn = function()
+                require('lualine').setup({});
+                require('nvim-web-devicons').refresh()
+            end
         },
         init = function()
             vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>ShowThemes<CR>", { silent = true })
