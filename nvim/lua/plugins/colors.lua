@@ -3,6 +3,7 @@ return {
         'kutiny/colors.nvim',
         branch = 'main',
         dev = false,
+        event = { 'VeryLazy' },
         opts = {
             enable_transparent_bg = true,
             fallback_theme_name = 'evergarden',
