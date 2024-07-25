@@ -1,7 +1,6 @@
 return {
     'nvimdev/dashboard-nvim',
     lazy = false,
-    event = 'VimEnter',
     config = function()
         local function generate_header()
             local week = {
@@ -111,7 +110,7 @@ return {
                         desc = ' kittyconf',
                         group = 'KittyConf',
                         action = 'e ~/.dotfiles/pub/kitty/kitty.conf',
-                        key = 'k',
+                        key = 'K',
                     },
                 },
             },

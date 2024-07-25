@@ -28,6 +28,16 @@ return {
         end,
     },
     {
+        "folke/tokyonight.nvim",
+        lazy = true,
+        name = 'tokyonight',
+        priority = 1000,
+        event = 'UIEnter',
+        opts = {
+            transparent = true,
+        },
+    },
+    {
         'catppuccin/nvim',
         name = 'catppuccin',
         lazy = true,
