@@ -1,5 +1,6 @@
 return {
     "nvim-zh/colorful-winsep.nvim",
+    enabled = false,
     lazy = true,
     opts = {
         -- hi = {

@@ -30,6 +30,7 @@ set clipboard=unnamed
 
 " " }}}
 
+set laststatus=3
 set backspace=indent,eol,start
 set shell=/bin/zsh
 
