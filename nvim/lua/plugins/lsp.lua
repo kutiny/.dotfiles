@@ -11,7 +11,7 @@ return {
         { 'hrsh7th/nvim-cmp' },                  -- Required
         { 'hrsh7th/cmp-nvim-lsp' },              -- Required
         { 'L3MON4D3/LuaSnip' },                  -- Required
-        { 'b0o/schemastore.nvim' }               -- schema validators
+        { 'b0o/schemastore.nvim' },              -- schema validators
     },
     config = function()
         local lsp = require('lsp-zero').preset({})
