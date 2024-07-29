@@ -1,7 +1,8 @@
 return {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v3.x',
-    event = { 'BufReadPre', 'BufNewFile' },
+    event = { 'BufReadPost', 'BufNewFile' },
+    cmd = { 'Mason', 'LspInfo', 'LspInstall', 'LspUninstall' },
     dependencies = {
         -- LSP Support
         { 'neovim/nvim-lspconfig' },             -- Required
