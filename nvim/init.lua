@@ -18,11 +18,10 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins", {
     change_detection = {
         notify = false,
+        enabled = false,
     },
     dev = {
-        ---@type string | fun(plugin: LazyPlugin): string directory where you store your local plugin projects
         path = "~/workspace/nvim-plugins",
-        ---@type string[] plugins that match these patterns will use your local versions instead of being fetched from GitHub
         patterns = {}, -- For example {"folke"}
         fallback = false,
     },
