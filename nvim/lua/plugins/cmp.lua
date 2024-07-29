@@ -55,7 +55,7 @@ return {
                     ['<CR>'] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
                 }),
                 sources = cmp.config.sources({
-                    { name = 'copilot',  max_item_count = 2 },
+                    { name = 'copilot',  max_item_count = 5 },
                     { name = 'nvim_lsp', max_item_count = 20 },
                     { name = 'vsnip',    max_item_count = 10 }, -- For vsnip users.
                     -- { name = 'luasnip' }, -- For luasnip users.
