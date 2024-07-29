@@ -1,6 +1,12 @@
 return {
     'stevearc/oil.nvim',
     lazy = true,
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    cmd = { "Oil", },
+    keys = {
+        { "<leader>pv", "<cmd>Oil<CR>",                                         { silent = true } },
+        { "<leader>pr", "<cmd>lua require'oil.actions'.refresh.callback()<CR>", { silent = true } },
+    },
     opts = {
         -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
         -- Set to false if you still want to use netrw.
@@ -163,12 +169,4 @@ return {
             border = "rounded",
         },
     },
-    -- Optional dependencies
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    init = function()
-        -- vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-        -- vim.keymap.set("n", "<leader>pv", "<CMD>Oil --float<CR>")
-        vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>")
-        vim.keymap.set("n", "<leader>pr", require('oil.actions').refresh.callback)
-    end,
 }

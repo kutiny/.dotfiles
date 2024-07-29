@@ -1,7 +1,7 @@
 return {
     {
         'mvllow/modes.nvim',
-        event = 'VeryLazy',
+        event = { 'BufReadPre', 'BufNewFile' },
         tag = 'v0.2.1',
         opts = {
             colors = {
@@ -49,7 +49,7 @@ return {
     },
     {
         "folke/noice.nvim",
-        event = "VeryLazy",
+        event = { 'BufRead', 'BufNewFile' },
         lazy = true,
         opts = {
             {
@@ -72,11 +72,7 @@ return {
             },
         },
         dependencies = {
-            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
             "MunifTanjim/nui.nvim",
-            -- OPTIONAL:
-            --   `nvim-notify` is only needed, if you want to use the notification view.
-            --   If not available, we use `mini` as the fallback
             { "rcarriga/nvim-notify", opts = { background_colour = "#000000" } },
         }
     }

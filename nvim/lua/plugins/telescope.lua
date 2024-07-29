@@ -2,23 +2,30 @@ return {
     'nvim-telescope/telescope.nvim',
     version = '0.1.8',
     dependencies = { { 'nvim-lua/plenary.nvim' } },
-    event = 'VeryLazy',
-    config = function()
-        local builtin = require('telescope.builtin')
-        local themes = require('telescope.themes')
-        vim.keymap.set('n', '<leader>pf', function()
-            builtin.find_files(themes.get_dropdown({}))
-        end)
-        vim.keymap.set('n', '<C-p>', function()
-            builtin.git_files(themes.get_dropdown({}))
-        end, {})
-        vim.keymap.set('n', '<leader>ps', function()
+    cmd = { 'Telescope' },
+    keys = {
+        { '<leader>ps', function()
+            local builtin = require('telescope.builtin')
+            local themes = require('telescope.themes')
             builtin.grep_string(themes.get_dropdown({
                 search = vim.fn.input("Grep > "),
             }));
-        end)
-        vim.keymap.set('n', '<leader>fs', builtin.live_grep, {})
-
+        end },
+        { '<leader>pf', function()
+            local builtin = require('telescope.builtin')
+            local themes = require('telescope.themes')
+            builtin.find_files(themes.get_dropdown({}))
+        end },
+        { '<leader>fs', function()
+            local builtin = require('telescope.builtin')
+            builtin.live_grep()
+        end },
+        { '<C-p>', function()
+            local builtin = require('telescope.builtin')
+            builtin.git_files()
+        end },
+    },
+    config = function()
         require('telescope').setup({
             defaults = {
                 -- NOTE: this is the only thing that works for hidden files search in rp

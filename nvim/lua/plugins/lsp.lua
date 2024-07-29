@@ -1,7 +1,7 @@
 return {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v3.x',
-    event = 'VeryLazy',
+    event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
         -- LSP Support
         { 'neovim/nvim-lspconfig' },             -- Required
