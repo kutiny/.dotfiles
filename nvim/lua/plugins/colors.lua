@@ -19,6 +19,7 @@ return {
                 'dracula-soft',
             },
             border = 'rounded',
+            icon = nil,
             title = ' Themes ',
             title_position = 'center',
             height = 10,
