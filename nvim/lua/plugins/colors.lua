@@ -3,7 +3,7 @@ return {
         'kutiny/colors.nvim',
         branch = 'main',
         dev = false,
-        event = { 'VeryLazy' },
+        event = { 'VimEnter' },
         opts = {
             enable_transparent_bg = true,
             fallback_theme_name = 'evergarden',
@@ -38,7 +38,7 @@ return {
         lazy = true,
         name = 'tokyonight',
         priority = 1000,
-        event = 'UIEnter',
+        event = 'VimEnter',
         opts = {
             transparent = true,
         },
@@ -47,7 +47,8 @@ return {
         'catppuccin/nvim',
         name = 'catppuccin',
         lazy = true,
-        event = 'UIEnter',
+        priority = 1000,
+        event = 'VimEnter',
         config = function()
             require('catppuccin').setup({
                 flavour = "auto", -- latte, frappe, macchiato, mocha
@@ -103,7 +104,7 @@ return {
         name = 'dracula',
         priority = 1000,
         lazy = true,
-        event = 'UIEnter',
+        event = 'VimEnter',
         config = function()
             local dracula = require("dracula")
             dracula.setup({
@@ -163,7 +164,7 @@ return {
         'Mofiqul/vscode.nvim',
         priority = 1000,
         lazy = true,
-        event = 'UIEnter',
+        event = 'VimEnter',
         config = function()
             local c = require('vscode.colors').get_colors()
             require("vscode").setup({
@@ -188,7 +189,7 @@ return {
         'comfysage/evergarden',
         priority = 1000,
         lazy = true,
-        event = 'UIEnter',
+        event = 'VimEnter',
         opts = {
             transparent_background = true,
             contrast_dark = 'hard', -- 'hard'|'medium'|'soft'
@@ -200,7 +201,7 @@ return {
         'rose-pine/neovim',
         priority = 1000,
         lazy = true,
-        event = 'UIEnter',
+        event = 'VimEnter',
         config = function()
             require("rose-pine").setup({
                 variant = "auto",      -- auto, main, moon, or dawn
@@ -270,5 +271,19 @@ return {
             })
         end,
         name = 'rose-pine',
+    },
+    {
+        'maxmx03/fluoromachine.nvim',
+        lazy = true,
+        name = 'fluoromachine',
+        priority = 1000,
+        event = 'VimEnter',
+        opts = {
+            glow = false,
+            transparent = true,
+            overrides = {
+                ['@function'] = { italic = true, bold = true },
+            }
+        },
     }
 }
