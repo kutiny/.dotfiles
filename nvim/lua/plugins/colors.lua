@@ -49,6 +49,7 @@ return {
         name = 'catppuccin',
         lazy = true,
         event = 'UIEnter',
+        priority = 1000,
         config = function()
             require('catppuccin').setup({
                 flavour = "auto", -- latte, frappe, macchiato, mocha
