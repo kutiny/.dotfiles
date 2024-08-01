@@ -6,7 +6,7 @@ return {
         event = { 'VeryLazy' },
         opts = {
             enable_transparent_bg = true,
-            fallback_theme_name = 'evergarden',
+            fallback_theme_name = 'catppuccin',
             hide_builtins = true,
             ignore_themes = {
                 'catppuccin-latte',
@@ -24,6 +24,7 @@ return {
             title_position = 'center',
             height = 10,
             width = 60,
+            persist = false,
             callback_fn = function()
                 require('lualine').setup({});
                 require('nvim-web-devicons').refresh()
@@ -103,6 +104,7 @@ return {
         name = 'dracula',
         priority = 1000,
         lazy = true,
+        enabled = false,
         event = 'UIEnter',
         config = function()
             local dracula = require("dracula")
@@ -163,6 +165,7 @@ return {
         'Mofiqul/vscode.nvim',
         priority = 1000,
         lazy = true,
+        enabled = false,
         event = 'UIEnter',
         config = function()
             local c = require('vscode.colors').get_colors()
@@ -188,6 +191,7 @@ return {
         'comfysage/evergarden',
         priority = 1000,
         lazy = true,
+        enabled = false,
         event = 'UIEnter',
         opts = {
             transparent_background = true,
@@ -199,6 +203,7 @@ return {
     {
         'rose-pine/neovim',
         priority = 1000,
+        enabled = false,
         lazy = true,
         event = 'UIEnter',
         config = function()
