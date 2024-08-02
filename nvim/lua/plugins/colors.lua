@@ -24,7 +24,7 @@ return {
             title_position = 'center',
             height = 10,
             width = 60,
-            persist = false,
+            persist = true,
             callback_fn = function()
                 require('lualine').setup({});
                 require('nvim-web-devicons').refresh()
@@ -33,6 +33,15 @@ return {
         init = function()
             vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>ShowThemes<CR>", { silent = true })
         end,
+    },
+    {
+        "metalelf0/jellybeans-nvim",
+        lazy = true,
+        enabled = true,
+        name = 'jellybeans',
+        priority = 1000,
+        event = 'UIEnter',
+        dependencies = { 'rktjmp/lush.nvim' },
     },
     {
         "folke/tokyonight.nvim",
