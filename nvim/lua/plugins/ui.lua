@@ -7,6 +7,7 @@ return {
     {
         "folke/noice.nvim",
         event = { 'BufRead', 'BufNewFile' },
+        enabled = false,
         lazy = true,
         opts = {
             {

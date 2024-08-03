@@ -22,6 +22,7 @@ return {
                     "88   `Y8a `\"YbbdP'Y8   \"Y888 88 88       88     Y88'     ",
                     "                                                d8'      ",
                     "                                               d8'       ",
+                    "",
                 },
                 project = {
                     enable = false,
