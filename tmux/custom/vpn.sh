@@ -9,7 +9,7 @@ showVpnStatus() {
     local on="true"
     local status=$($vpnExecutable -s | grep -E 'state|Status' | tail -n 1 | awk -F': ' '{ print $3 }')
 
-    if [[ $status ~= "No such" ]]; then
+    if [[ $status == "" ]]; then
         return
     fi
 
