@@ -28,7 +28,12 @@ return {
             pattern = '*',
             callback = function()
                 vim.cmd([[ALEFix]])
+                -- vim.lsp.buf.format { filter = function(client) return client.name ~= 'tsserver' end }
             end
         })
+
+        vim.keymap.set("n", "<leader>ff", function()
+            vim.cmd([[ALEFix]])
+        end)
     end,
 }
