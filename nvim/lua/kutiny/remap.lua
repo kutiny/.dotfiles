@@ -52,13 +52,17 @@ vim.keymap.set("n", "<leader>lr", ":lua vim.lsp.buf.rename()\n")
 vim.keymap.set(
     "n",
     "]d",
-    "<cmd>lua vim.diagnostic.goto_next()<CR>",
+    function()
+        vim.diagnostic.jump({ count = 1, float = true })
+    end,
     { silent = true, desc = "Next diagnostic" }
 )
 vim.keymap.set(
     "n",
     "[d",
-    "<cmd>lua vim.diagnostic.goto_prev()<CR>",
+    function()
+        vim.diagnostic.jump({ count = -1, float = true })
+    end,
     { silent = true, desc = "Prev diagnostic" }
 )
 
@@ -81,4 +85,3 @@ vim.keymap.set(
 --     end,
 --     {}
 -- )
-

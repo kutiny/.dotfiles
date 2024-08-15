@@ -1,0 +1,34 @@
+return {
+    'dense-analysis/ale',
+    config = function()
+        local g = vim.g
+
+        g.ale_set_loclist = 0
+        g.ale_set_quickfix = 1
+
+        g.ale_ruby_rubocop_auto_correct_all = 1
+
+        g.ale_linters = {
+            lua = { 'lua_language_server' },
+        }
+
+        g.ale_fixers = {
+            lua = { 'stylua' },
+            javascript = { 'prettier' },
+            typescript = { 'prettier' },
+            css = { 'prettier' },
+            scss = { 'prettier' },
+            less = { 'prettier' },
+        }
+
+        local group = vim.api.nvim_create_augroup('ktn_fmt', { clear = true })
+
+        vim.api.nvim_create_autocmd('BufWritePre', {
+            group = group,
+            pattern = '*',
+            callback = function()
+                vim.cmd([[ALEFix]])
+            end
+        })
+    end,
+}

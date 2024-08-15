@@ -36,13 +36,13 @@ init() {
     local is_error=$(timeout 2 kubectl version | grep 'error' | wc -l)
 
     if [[ "$code" == "143" || "$code" == "1" || "$code" == "124" || "$is_error" == "1" ]]; then
-        state=""
+        state=""
     elif [[ "$code" == "0" ]]; then
         fg=white
         state=$(kubectl config current-context)
     fi
 
-    print_pill "K8S" $state "true"
+    print_pill "K8S" $state "true" "#7895B2"
 }
 
 init

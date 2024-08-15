@@ -35,13 +35,20 @@ return {
         end,
     },
     {
-        "metalelf0/jellybeans-nvim",
+        'EdenEast/nightfox.nvim',
         lazy = true,
-        enabled = true,
-        name = 'jellybeans',
+        name = 'nightfox',
         priority = 1000,
         event = 'UIEnter',
-        dependencies = { 'rktjmp/lush.nvim' },
+        opts = {
+            options = {
+                styles = {
+                    comments = "italic",
+                    keywords = "bold",
+                    types = "italic,bold",
+                }
+            }
+        },
     },
     {
         "folke/tokyonight.nvim",
