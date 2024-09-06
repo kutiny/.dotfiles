@@ -18,7 +18,10 @@ show_market() {
     local value=""
 
     if [ ! -z $buy_price ] && [ ! -z $sell_price ]; then
-        value=$(( $buy_price + ($sell_price - $buy_price) / 2 ))
+        bp="parseFloat('$buy_price'.replace('.', '.'))"
+        sp="parseFloat('$sell_price'.replace('.', '.'))"
+        node_cmd="process.stdout.write((($bp + ($sp- $bp) / 2).toFixed(2)))"
+        value=$(node -e "$node_cmd")
         print_pill $label $value $is_open
     fi
 }
