@@ -5,7 +5,7 @@ return {
         dev = false,
         event = { 'VeryLazy' },
         opts = {
-            enable_transparent_bg = true,
+            enable_transparent_bg = false,
             fallback_theme_name = 'catppuccin',
             hide_builtins = true,
             ignore_themes = {
