@@ -2,7 +2,11 @@
 
 source $(dirname "$0")/tools/kit.sh
 
-show_market() {
+is_open=false
+label="BYMA"
+value=""
+
+fetch_data() {
     local html_response=$(curl --silent https://dolarhoy.com/)
     local buy_price=$(echo $html_response | \
         xmllint --nowarning --html --xpath \
@@ -16,10 +20,8 @@ show_market() {
         xmllint --nowarning --html --xpath \
         "/html/body/div[3]/div[2]/div[1]/div[1]/div[2]/section/div/div/div[2]/div[1]/div/div[2]/div[4]/div/div[3]/div[2]/div/text()" - |\
         tail -1)
+    is_open=$(curl --silent https://open.bymadata.com.ar/vanoms-be-core/rest/api/bymadata/free/market-open)
 
-    local is_open=$(curl --silent https://open.bymadata.com.ar/vanoms-be-core/rest/api/bymadata/free/market-open)
-    local label="BYMA"
-    local value=""
 
     if [ ! -z $buy_price ] && [ ! -z $sell_price ]; then
         value="$buy_price $sell_price"
@@ -45,8 +47,40 @@ show_market() {
             change_icon="#[fg=#BACD92]#[fg=#000000]"
         fi
 
-        print_pill $label "$change_icon $value" $is_open
+        value="$change_icon $value"
     fi
 }
 
-show_market
+function market {
+    now=$(date +%s)
+    diff=0
+    last_update=-1
+
+    function update {
+        now=$(date +%s)
+        fetch_data
+        echo "$now" > ~/.tmp_time
+        echo "$is_open" >> ~/.tmp_time
+        echo "$value" >> ~/.tmp_time
+    }
+
+    if [ -f ~/.tmp_time ]; then
+        last_update_data=$(cat ~/.tmp_time)
+        last_update=$(echo "$last_update_data" | sed -n 1p)
+        is_open=$(echo "$last_update_data" | sed -n 2p)
+        value=$(echo "$last_update_data" | sed -n 3p)
+        last_update=$(date -j -f "%s" "$last_update" +%s)
+        diff=$((now - last_update))
+
+        if [ $diff -gt 30 ]; then
+            update
+        fi
+    else
+        update
+    fi
+
+    print_pill $label "$value" true
+}
+
+market
+

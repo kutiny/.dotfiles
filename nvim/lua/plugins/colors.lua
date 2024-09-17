@@ -17,6 +17,9 @@ return {
                 'rose-pine-moon',
                 'rose-pine-main',
                 'dracula-soft',
+                'dawnfox',
+                'dayfox',
+                'tokyonight-day',
             },
             border = 'rounded',
             icon = nil,
@@ -33,6 +36,13 @@ return {
         init = function()
             vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>ShowThemes<CR>", { silent = true })
         end,
+    },
+    {
+        'sainnhe/gruvbox-material',
+        lazy = true,
+        name = 'gruvbox',
+        priority = 1000,
+        event = 'UIEnter',
     },
     {
         'EdenEast/nightfox.nvim',
@@ -299,6 +309,7 @@ return {
         name = 'fluoromachine',
         priority = 1000,
         event = 'UIEnter',
+        enabled = false,
         opts = {
             glow = false,
             transparent = true,
