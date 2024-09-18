@@ -79,7 +79,7 @@ function market {
         update
     fi
 
-    print_pill $label "$value" true
+    print_pill $label "$value" $is_open
 }
 
 market
