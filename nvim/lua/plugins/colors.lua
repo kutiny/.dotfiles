@@ -5,7 +5,7 @@ return {
         dev = false,
         event = { 'VeryLazy' },
         opts = {
-            enable_transparent_bg = false,
+            enable_transparent_bg = true,
             fallback_theme_name = 'catppuccin',
             hide_builtins = true,
             ignore_themes = {
@@ -36,29 +36,6 @@ return {
         init = function()
             vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>ShowThemes<CR>", { silent = true })
         end,
-    },
-    {
-        'sainnhe/gruvbox-material',
-        lazy = true,
-        name = 'gruvbox',
-        priority = 1000,
-        event = 'UIEnter',
-    },
-    {
-        'EdenEast/nightfox.nvim',
-        lazy = true,
-        name = 'nightfox',
-        priority = 1000,
-        event = 'UIEnter',
-        opts = {
-            options = {
-                styles = {
-                    comments = "italic",
-                    keywords = "bold",
-                    types = "italic,bold",
-                }
-            }
-        },
     },
     {
         "folke/tokyonight.nvim",
@@ -189,32 +166,6 @@ return {
         end
     },
     {
-        'Mofiqul/vscode.nvim',
-        priority = 1000,
-        lazy = true,
-        enabled = false,
-        event = 'UIEnter',
-        config = function()
-            local c = require('vscode.colors').get_colors()
-            require("vscode").setup({
-                transparent = true,
-                italic_comments = true,
-                underline_links = true,
-                disable_nvimtree_bg = true,
-                -- color_overrides = {
-                --     vscLineNumber = '#FFFFFF',
-                -- },
-                -- Override highlight groups (see ./lua/vscode/theme.lua)
-                group_overrides = {
-                    -- this supports the same val table as vim.api.nvim_set_hl
-                    -- use colors from this colorscheme by requiring vscode.colors!
-                    Cursor = { fg = c.vscDarkBlue, bg = c.vscLightGreen, bold = true },
-                }
-            })
-        end,
-        name = 'vscode',
-    },
-    {
         'comfysage/evergarden',
         priority = 1000,
         lazy = true,
@@ -303,19 +254,4 @@ return {
         end,
         name = 'rose-pine',
     },
-    {
-        'maxmx03/fluoromachine.nvim',
-        lazy = true,
-        name = 'fluoromachine',
-        priority = 1000,
-        event = 'UIEnter',
-        enabled = false,
-        opts = {
-            glow = false,
-            transparent = true,
-            overrides = {
-                ['@function'] = { italic = true, bold = true },
-            }
-        },
-    }
 }
