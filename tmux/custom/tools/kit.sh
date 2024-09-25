@@ -4,19 +4,31 @@ function print_pill {
     tag=$1
     value=$2
     on=$3
-    color=$4
+    bg_color=$4
+    fg_color=$5
 
-    local tag_bg="#FF8787"
-    local tag_fg="#000000"
-    local value_bg="#DFD3C3"
-    local value_fg="#000000"
+    local red_bg="#C5705D"
+    local green_bg="#BACD92"
+    local white_fg="#FAFAFA"
+    local dark_fg="#2D2D2D"
+
+    local tag_bg=$red_bg
+    local tag_fg=$white_fg
+
+    local value_bg="#D3D3C3"
+    local value_fg=$dark_fg
 
     if [[ "$on" == "true" ]]; then
-        tag_bg="#BACD92"
+        tag_bg=$green_bg
+        tag_fg=$dark_fg
     fi
 
-    if [[ "$color" != "" ]]; then
-        tag_bg=$color
+    if [[ "$bg_color" != "" ]]; then
+        tag_bg=$bg_color
+    fi
+
+    if [[ "$fg_color" != "" ]]; then
+        tag_fg=$fg_color
     fi
 
     local prefix="#[fg=$tag_bg]#[bg=${tag_bg},fg=${tag_fg}]$tag #[bg=${value_bg},fg=${value_fg}]"

@@ -12,7 +12,7 @@ function work {
 
     if [[ "$is_worktime" == "1" && "$is_weekend" == "0" ]]; then
         is_active=false
-        tag="Working"
+        tag="Busy"
         # get remaining time until 18:00hs in human format and in shell code (macos)
         rem_time=$(date -j -f "%H:%M:%S" "$(date +"%T")" "18:00:00" +%S)
 

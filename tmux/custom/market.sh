@@ -42,9 +42,9 @@ fetch_data() {
         value="$(( value / 100 )).${value: -2}"
 
         if [[ "$change" =~ ^-.*$ ]]; then
-            change_icon="#[fg=#FF8787]#[fg=#000000]"
+            change_icon=""
         else
-            change_icon="#[fg=#BACD92]#[fg=#000000]"
+            change_icon=""
         fi
 
         value="$change_icon $value"
