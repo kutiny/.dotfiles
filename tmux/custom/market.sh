@@ -3,7 +3,7 @@
 source $(dirname "$0")/tools/kit.sh
 
 is_open=false
-label="BYMA"
+label="ByMA"
 value=""
 
 fetch_data() {

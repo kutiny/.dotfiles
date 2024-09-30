@@ -2,7 +2,7 @@ return {
     'laytan/cloak.nvim',
     opts = {
         enabled = true,
-        cloak_character = '',
+        -- cloak_character = '',
         -- The applied highlight group (colors) on the cloaking, see `:h highlight`.
         highlight_group = 'Comment',
         -- Applies the length of the replacement characters for all matched
@@ -30,4 +30,12 @@ return {
         },
     },
     ft = { "sh" },
+    keys = {
+        {
+            '<leader>hh', '<cmd>CloakToggle<cr>', { silent = true }
+        },
+        {
+            '<leader>h1', '<cmd>CloakPreviewLine<cr>', { silent = true }
+        }
+    }
 }
