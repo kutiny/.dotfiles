@@ -10,9 +10,6 @@ return {
             hide_builtins = true,
             ignore_themes = {
                 'catppuccin-latte',
-                'catppuccin-frappe',
-                'catppuccin-macchiato',
-                'catppuccin-mocha',
                 'rose-pine-dawn',
                 'rose-pine-moon',
                 'rose-pine-main',
@@ -46,6 +43,13 @@ return {
         opts = {
             transparent = true,
         },
+    },
+    {
+        'sainnhe/sonokai',
+        name = 'sonokai',
+        lazy = true,
+        event = 'UIEnter',
+        priority = 1000,
     },
     {
         'catppuccin/nvim',
@@ -169,7 +173,7 @@ return {
         'comfysage/evergarden',
         priority = 1000,
         lazy = true,
-        enabled = false,
+        enabled = true,
         event = 'UIEnter',
         opts = {
             transparent_background = true,
@@ -181,7 +185,7 @@ return {
     {
         'rose-pine/neovim',
         priority = 1000,
-        enabled = false,
+        enabled = true,
         lazy = true,
         event = 'UIEnter',
         config = function()
