@@ -6,6 +6,7 @@ return {
 
         g.ale_set_loclist = 0
         g.ale_set_quickfix = 1
+        g.ale_disable_lsp = 1
 
         g.ale_ruby_rubocop_auto_correct_all = 1
 
@@ -20,6 +21,7 @@ return {
             css = { 'prettier' },
             scss = { 'prettier' },
             less = { 'prettier' },
+            html = { 'prettier' }
         }
 
         local group = vim.api.nvim_create_augroup('ktn_fmt', { clear = true })
