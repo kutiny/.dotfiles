@@ -50,6 +50,9 @@ return {
         lazy = true,
         event = 'UIEnter',
         priority = 1000,
+        config = function()
+            vim.g.sonokai_transparent_background = true
+        end,
     },
     {
         'catppuccin/nvim',
