@@ -21,7 +21,8 @@ return {
             css = { 'prettier' },
             scss = { 'prettier' },
             less = { 'prettier' },
-            html = { 'prettier' }
+            html = { 'prettier' },
+            sh = { 'shfmt' },
         }
 
         local group = vim.api.nvim_create_augroup('ktn_fmt', { clear = true })
