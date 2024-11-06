@@ -124,9 +124,9 @@ function vpn_connect() {
 	fi
 
     if [[ "$verbose" == "1" ]]; then
-        printf "%s\n%s\n%s\n%s\n" "$VPN_GROUP" "$VPN_USERNAME" "$decrypted_password" "$OTP" | $ANYCONNECT_PATH -s connect "$VPN_HOST_NAME"
+        printf "%s\n%s\n%s\n" "$VPN_USERNAME" "$decrypted_password" "$OTP" | $ANYCONNECT_PATH -s connect "$VPN_HOST_NAME"
     else
-        printf "%s\n%s\n%s\n%s\n" "$VPN_GROUP" "$VPN_USERNAME" "$decrypted_password" "$OTP" | $ANYCONNECT_PATH -s connect "$VPN_HOST_NAME" | grep 'state' | awk -F ': ' 'END { print "Status:", $2 }'
+        printf "%s\n%s\n%s\n" "$VPN_USERNAME" "$decrypted_password" "$OTP" | $ANYCONNECT_PATH -s connect "$VPN_HOST_NAME" | grep 'state' | awk -F ': ' 'END { print "Status:", $2 }'
     fi
 }
 
