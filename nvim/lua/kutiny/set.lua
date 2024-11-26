@@ -58,3 +58,4 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.cmdheight = 1
 
 -- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+vim.diagnostic.config({ virtual_text = false })

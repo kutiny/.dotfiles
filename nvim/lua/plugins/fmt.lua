@@ -7,6 +7,8 @@ return {
         g.ale_set_loclist = 0
         g.ale_set_quickfix = 1
         g.ale_disable_lsp = 1
+        g.ale_virtualtext_cursor = 'disabled'
+        g.ale_disable_linter = 1
 
         g.ale_ruby_rubocop_auto_correct_all = 1
 
@@ -39,5 +41,6 @@ return {
         vim.keymap.set("n", "<leader>ff", function()
             vim.cmd([[ALEFix]])
         end)
+
     end,
 }
