@@ -97,6 +97,10 @@ return {
             end,
             -- This function defines what will never be shown, even when `show_hidden` is set
             is_always_hidden = function(name, bufnr)
+                if name == '.git' or name == '.gitmodules' then
+                    return true
+                end
+
                 return false
             end,
             -- Sort file names in a more intuitive order for humans. Is less performant,
