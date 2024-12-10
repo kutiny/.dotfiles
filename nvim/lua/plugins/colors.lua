@@ -35,11 +35,27 @@ return {
         end,
     },
     {
+        "sainnhe/gruvbox-material",
+        lazy = true,
+        name = 'gruvbox',
+        priority = 1000,
+        event = 'UIEnter',
+        opts = {
+            transparent = true,
+        },
+        init = function ()
+            vim.g.gruvbox_material_background = 'hard'
+            vim.g.gruvbox_material_foreground = 'original'
+            vim.g.gruvbox_material_transparent_background = 2
+        end
+    },
+    {
         "folke/tokyonight.nvim",
         lazy = true,
         name = 'tokyonight',
         priority = 1000,
         event = 'UIEnter',
+        enabled = false,
         opts = {
             transparent = true,
         },
@@ -49,6 +65,7 @@ return {
         name = 'sonokai',
         lazy = true,
         event = 'UIEnter',
+        enabled = false,
         priority = 1000,
         config = function()
             vim.g.sonokai_transparent_background = true
@@ -188,7 +205,7 @@ return {
     {
         'rose-pine/neovim',
         priority = 1000,
-        enabled = true,
+        enabled = false,
         lazy = true,
         event = 'UIEnter',
         config = function()

@@ -7,9 +7,15 @@ return {
         { '<leader>ps', function()
             local builtin = require('telescope.builtin')
             local themes = require('telescope.themes')
-            builtin.grep_string(themes.get_dropdown({
-                search = vim.fn.input("Grep > "),
-            }));
+            vim.ui.input({ prompt = 'Grep  ' }, function(input)
+                if input == nil then
+                    return
+                end
+                builtin.grep_string(themes.get_dropdown({ search = input }))
+            end)
+            -- builtin.grep_string(themes.get_dropdown({
+            --     search = vim.fn.input("Grep > "),
+            -- }));
         end },
         { '<leader>pf', function()
             local builtin = require('telescope.builtin')

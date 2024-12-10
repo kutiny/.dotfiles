@@ -97,7 +97,7 @@ return {
             end,
             -- This function defines what will never be shown, even when `show_hidden` is set
             is_always_hidden = function(name, bufnr)
-                if name == '.git' or name == '.gitmodules' then
+                if name == '.git' or name == '.gitmodules' or name == '.vscode' then
                     return true
                 end
 

@@ -1,10 +1,5 @@
 return {
     {
-        'mawkler/modicator.nvim',
-        event = { 'BufReadPre', 'BufNewFile' },
-        opts = {},
-    },
-    {
         "folke/noice.nvim",
         event = { 'BufRead', 'BufNewFile' },
         enabled = false,
