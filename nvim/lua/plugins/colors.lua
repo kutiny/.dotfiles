@@ -50,6 +50,19 @@ return {
         end
     },
     {
+        "bluz71/vim-nightfly-colors",
+        lazy = true,
+        name = 'nightfly',
+        priority = 1000,
+        event = 'UIEnter',
+        enabled = true,
+        init = function()
+            vim.g.nightflyTransparent = true
+            vim.g.nightflyUnderlineMatchParen = true
+            vim.g.nightflyWinSeparator = 0
+        end,
+    },
+    {
         "folke/tokyonight.nvim",
         lazy = true,
         name = 'tokyonight',

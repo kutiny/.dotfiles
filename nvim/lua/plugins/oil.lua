@@ -6,6 +6,7 @@ return {
     keys = {
         { "<leader>pv", "<cmd>Oil<CR>",                                         { silent = true } },
         { "<leader>pr", "<cmd>lua require'oil.actions'.refresh.callback()<CR>", { silent = true } },
+        { "<leader>ph", "<cmd>lua require'oil'.open(vim.fn.getcwd())<CR>", { silent = true } },
     },
     opts = {
         -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
