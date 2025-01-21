@@ -97,8 +97,3 @@ else
     source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
-_pvt_loader=~/.dotfiles/pvt/shell/.loader
-if [[ -f $_pvt_loader ]]; then
-    source ~/.dotfiles/pvt/shell/.loader
-fi
-
