@@ -60,6 +60,31 @@ return {
                     function(server_name)
                         require('lspconfig')[server_name].setup({})
                     end,
+                    ['cssls'] = function()
+                        print('cssls')
+                        require('lspconfig').cssls.setup({
+                            settings = {
+                                css = {
+                                    validate = true,
+                                    lint = {
+                                        unknownAtRules = "ignore"
+                                    }
+                                },
+                                scss = {
+                                    validate = true,
+                                    lint = {
+                                        unknownAtRules = "ignore"
+                                    }
+                                },
+                                less = {
+                                    validate = true,
+                                    lint = {
+                                        unknownAtRules = "ignore"
+                                    }
+                                },
+                            },
+                        })
+                    end,
                     lua_ls = function()
                         require('lspconfig').lua_ls.setup({})
                     end,
