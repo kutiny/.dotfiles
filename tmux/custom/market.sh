@@ -20,7 +20,10 @@ fetch_data() {
         xmllint --nowarning --html --xpath \
         "/html/body/div[4]/div[2]/div[1]/div[1]/div[2]/section/div/div/div[2]/div[1]/div/div[2]/div[3]/div/div[3]/div[2]/div/text()" - |\
         tail -1)
-    is_open=$(curl --silent https://open.bymadata.com.ar/vanoms-be-core/rest/api/bymadata/free/market-open)
+    is_open=$(curl --silent https://open.bymadata.com.ar/vanoms-be-core/rest/api/bymadata/free/market-open \
+--header 'Cache-Control: no-cache,no-store,max-age=1,must-revaliidate' \
+--header 'Expires: 1' \
+--header 'Options: dashboard')
 
 
     if [ ! -z $buy_price ] && [ ! -z $sell_price ]; then
