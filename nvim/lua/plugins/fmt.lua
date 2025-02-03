@@ -44,6 +44,15 @@ return {
             vim.cmd([[ALEFix]])
         end)
 
+        vim.api.nvim_create_user_command('AutoSave', function()
+            local enabled = table.getn(vim.api.nvim_get_autocmds({ group = group })) > 0
+            if enabled then
+                print('AutoSave is enabled')
+            else
+                print('AutoSave is disabled')
+            end
+        end, {})
+
         vim.api.nvim_create_user_command('AutoSaveOn', function()
             fmtFunction()
         end, {})
