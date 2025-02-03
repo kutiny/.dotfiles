@@ -29,18 +29,29 @@ return {
 
         local group = vim.api.nvim_create_augroup('ktn_fmt', { clear = true })
 
-        vim.api.nvim_create_autocmd('BufWritePre', {
-            group = group,
-            pattern = '*',
-            callback = function()
-                vim.cmd([[ALEFix]])
-                -- vim.lsp.buf.format { filter = function(client) return client.name ~= 'tsserver' end }
-            end
-        })
+        local fmtFunction = function()
+            vim.api.nvim_create_autocmd('BufWritePre', {
+                group = group,
+                pattern = '*',
+                callback = function()
+                    vim.cmd([[ALEFix]])
+                    -- vim.lsp.buf.format { filter = function(client) return client.name ~= 'tsserver' end }
+                end
+            })
+        end
 
         vim.keymap.set("n", "<leader>ff", function()
             vim.cmd([[ALEFix]])
         end)
 
+        vim.api.nvim_create_user_command('AutoSaveOn', function()
+            fmtFunction()
+        end, {})
+
+        vim.api.nvim_create_user_command('AutoSaveOff', function()
+            vim.api.nvim_clear_autocmds({
+                group = group,
+            })
+        end, {})
     end,
 }
