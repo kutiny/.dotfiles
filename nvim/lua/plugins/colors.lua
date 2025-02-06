@@ -17,6 +17,7 @@ return {
                 'dawnfox',
                 'dayfox',
                 'tokyonight-day',
+                'witch-light',
             },
             border = 'rounded',
             icon = nil,
@@ -303,4 +304,10 @@ return {
         --     require("witch").setup(opts)
         -- end,
     },
+    {
+        "savq/melange-nvim",
+        priority = 1000,
+        lazy = true,
+        event = 'UIEnter',
+    }
 }
