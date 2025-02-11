@@ -44,20 +44,20 @@ return {
             vim.cmd([[ALEFix]])
         end)
 
-        vim.api.nvim_create_user_command('AutoSave', function()
+        vim.api.nvim_create_user_command('FormatOnSave', function()
             local enabled = table.getn(vim.api.nvim_get_autocmds({ group = group })) > 0
             if enabled then
-                print('AutoSave is enabled')
+                print('FormatOnSave is enabled')
             else
-                print('AutoSave is disabled')
+                print('FormatOnSave is disabled')
             end
         end, {})
 
-        vim.api.nvim_create_user_command('AutoSaveOn', function()
+        vim.api.nvim_create_user_command('FormatOnSaveOn', function()
             fmtFunction()
         end, {})
 
-        vim.api.nvim_create_user_command('AutoSaveOff', function()
+        vim.api.nvim_create_user_command('FormatOnSaveOff', function()
             vim.api.nvim_clear_autocmds({
                 group = group,
             })
