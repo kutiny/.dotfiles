@@ -29,15 +29,9 @@ return {
 
         local group = vim.api.nvim_create_augroup('ktn_fmt', { clear = true })
 
-        local fmtFunction = function()
-            vim.api.nvim_create_autocmd('BufWritePre', {
-                group = group,
-                pattern = '*',
-                callback = function()
-                    vim.cmd([[ALEFix]])
-                    -- vim.lsp.buf.format { filter = function(client) return client.name ~= 'tsserver' end }
-                end
-            })
+        local isEnabled = function()
+            local enabled = table.getn(vim.api.nvim_get_autocmds({ group = group })) > 0
+            return enabled
         end
 
         vim.keymap.set("n", "<leader>ff", function()
@@ -45,7 +39,7 @@ return {
         end)
 
         vim.api.nvim_create_user_command('FormatOnSave', function()
-            local enabled = table.getn(vim.api.nvim_get_autocmds({ group = group })) > 0
+            local enabled = isEnabled()
             if enabled then
                 print('FormatOnSave is enabled')
             else
@@ -54,10 +48,27 @@ return {
         end, {})
 
         vim.api.nvim_create_user_command('FormatOnSaveOn', function()
-            fmtFunction()
+            if isEnabled() then
+                print('FormatOnSave is already enabled')
+                return
+            end
+            vim.g.ale_fix_on_save = true
+            vim.api.nvim_create_autocmd('BufWritePre', {
+                group = group,
+                pattern = '*',
+                callback = function()
+                    vim.cmd([[ALEFix]])
+                    -- vim.lsp.buf.format { filter = function(client) return client.name ~= 'tsserver' end }
+                end
+            })
         end, {})
 
         vim.api.nvim_create_user_command('FormatOnSaveOff', function()
+            if not isEnabled() then
+                print('FormatOnSave is already disabled')
+                return
+            end
+            vim.g.ale_fix_on_save = false
             vim.api.nvim_clear_autocmds({
                 group = group,
             })
