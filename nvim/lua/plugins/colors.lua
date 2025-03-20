@@ -18,6 +18,7 @@ return {
                 'dayfox',
                 'tokyonight-day',
                 'witch-light',
+                'cyberdream-light'
             },
             border = 'rounded',
             icon = nil,
@@ -309,5 +310,14 @@ return {
         priority = 1000,
         lazy = true,
         event = 'UIEnter',
+    },
+    {
+        "scottmckendry/cyberdream.nvim",
+        lazy = false,
+        priority = 1000,
+        event = 'UIEnter',
+        opts = {
+            italic_comments = true,
+        }
     }
 }
