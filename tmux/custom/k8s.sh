@@ -42,7 +42,7 @@ init() {
         state=$(kubectl config current-context)
     fi
 
-    print_pill "K8s" $state "true" "#7895B2"
+    print_pill "K8s" $state "true" "color110"
 }
 
 init

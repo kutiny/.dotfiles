@@ -4,7 +4,7 @@ source $(dirname "$0")/tools/kit.sh
 
 is_open=false
 label="ByMA"
-value=""
+value="N/A"
 
 fetch_data() {
     local html_response=$(curl --silent https://dolarhoy.com/)
@@ -24,7 +24,6 @@ fetch_data() {
 --header 'Cache-Control: no-cache,no-store,max-age=1,must-revaliidate' \
 --header 'Expires: 1' \
 --header 'Options: dashboard')
-
 
     if [ ! -z $buy_price ] && [ ! -z $sell_price ]; then
         value="$buy_price $sell_price"
@@ -77,14 +76,16 @@ function market {
         last_update=$(date -j -f "%s" "$last_update" +%s)
         diff=$((now - last_update))
 
-        if [ $diff -gt 30 ]; then
+        if [ $diff -gt 60 ]; then
             update
         fi
     else
         update
     fi
 
-    print_pill $label "$value" $is_open
+    if [[ "$value" != "N/A" ]]; then
+        print_pill $label "$value" $is_open
+    fi
 }
 
 market

@@ -13,14 +13,21 @@ function work {
     if [[ "$is_worktime" == "1" && "$is_weekend" == "0" ]]; then
         is_active=false
         tag="Busy"
-        # get remaining time until 18:00hs in human format and in shell code (macos)
-        rem_time=$(date -j -f "%H:%M:%S" "$(date +"%T")" "18:00:00" +%S)
+        rem_time=
+        current_time=
 
-        # Get the current date and time in seconds since epoch
-        current_time=$(date +%s)
-
-        # Get today's date with 18:00 time in seconds since epoch
-        target_time=$(date -j -f "%Y-%m-%d %H:%M:%S" "$(date +'%Y-%m-%d') 18:00:00" +%s)
+        if [[ "$(uname)" == "Linux" ]]; then
+            current_time=$(date +%s)
+            # Get today's date with 18:00 time in seconds since epoch
+            target_time=$(date -d "18:00:00" +%s)
+        else
+            # get remaining time until 18:00hs in human format and in shell code (macos)
+            rem_time=$(date -j -f "%H:%M:%S" "$(date +"%T")" "18:00:00" +%S)
+            # Get the current date and time in seconds since epoch
+            current_time=$(date +%s)
+            # Get today's date with 18:00 time in seconds since epoch
+            target_time=$(date -j -f "%Y-%m-%d %H:%M:%S" "$(date +'%Y-%m-%d') 18:00:00" +%s)
+        fi
 
         # Calculate the remaining seconds
         remaining_seconds=$((target_time - current_time))
