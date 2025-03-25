@@ -313,11 +313,18 @@ return {
     },
     {
         "scottmckendry/cyberdream.nvim",
-        lazy = false,
+        lazy = true,
         priority = 1000,
         event = 'UIEnter',
         opts = {
             italic_comments = true,
         }
+    },
+    {
+        "projekt0n/github-nvim-theme",
+        name = "github-theme",
+        lazy = true,
+        priority = 1000,
+        event = 'UIEnter',
     }
 }
