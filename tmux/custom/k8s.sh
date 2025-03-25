@@ -36,13 +36,24 @@ init() {
     local is_error=$(timeout 2 kubectl version | grep 'error' | wc -l)
 
     if [[ "$code" == "143" || "$code" == "1" || "$code" == "124" || "$is_error" == "1" ]]; then
-        state=""
+        state=""
     elif [[ "$code" == "0" ]]; then
         fg=white
         state=$(kubectl config current-context)
+        echo $state | grep -E '([a-zA-Z0-9-]+:){5}[a-z]+\/[a-z-]+' &> /dev/null
+        isk=$?
+        if [[ "0" == "$isk" ]]; then
+            o=$(echo $state | awk -F'/' '{print $2}')
+            u=$(echo $state | awk -F':' '{print $5}')
+            z=STG
+            if [[ "${u:1:1}" == "0" ]]; then
+                z=PRD
+            fi
+            state="${o} [${z}]"
+        fi
     fi
 
-    print_pill "K8s" $state "true" "color110"
+    print_pill "K8s" "$state" "true" "color110"
 }
 
 init
