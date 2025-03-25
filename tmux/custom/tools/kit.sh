@@ -8,13 +8,13 @@ function print_pill {
     fg_color=$5
 
     local red_bg="color167" # red_bg="#C5705D"
-    local green_bg="color142" # green_bg="#BACD92"
+    local green_bg="color107" # green_bg="#BACD92"
     local white_fg="color255" # white_fg="#FAFAFA"
     local dark_fg="color235" # dark_fg="#2D2D2D"
 
     local tag_bg="$red_bg"
     local tag_fg="$white_fg"
-    local value_bg="color189" # value_bg="#D3D3C3"
+    local value_bg="color255" # value_bg="#D3D3C3"
     local value_fg=$dark_fg
 
     if [[ "$on" == "true" ]]; then
