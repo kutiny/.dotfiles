@@ -3,9 +3,7 @@
 source $(dirname "$0")/tools/kit.sh
 
 init() {
-    local fg="colour7"
     local state=
-    local icon=""
     local system="$(uname)"
 
     if [[ "$system" == "Darwin" ]]; then
@@ -37,16 +35,19 @@ init() {
     if [[ "$code" == "143" || "$code" == "1" || "$code" == "124" ]]; then
         state=""
     elif [[ "$code" == "0" ]]; then
-        fg=white
         arn=$(aws sts get-caller-identity | jq -r '.Arn')
-        state=$(echo $arn | awk -F'/' '{ print $2 }' | awk -F'-' '{ print toupper($2"-"$3) }')
-        echo $state | grep -E '([a-zA-Z0-9-]+:){5}[a-z]+\/[a-z-]+' &> /dev/null
-        isk=$(echo $arn | awk -F':' '{ print $5 }')
-        z=STG
-        if [[ "0" == "${isk:1:1}" ]]; then
-            z=PRD
+        if [[ "$arn" == "" ]]; then
+            state=""
+        else
+            state=$(echo $arn | awk -F'/' '{ print $2 }' | awk -F'-' '{ print toupper($2"-"$3) }')
+            echo $state | grep -E '([a-zA-Z0-9-]+:){5}[a-z]+\/[a-z-]+' &> /dev/null
+            isk=$(echo $arn | awk -F':' '{ print $5 }')
+            z=STG
+            if [[ "0" == "${isk:1:1}" ]]; then
+                z=PRD
+            fi
+            state="${state} [${z}]"
         fi
-        state="${state} [${z}]"
     fi
 
     print_pill " " "$state" "true" "color208"
