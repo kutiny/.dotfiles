@@ -45,7 +45,7 @@ return {
         opts = {
             transparent = true,
         },
-        init = function ()
+        init = function()
             vim.g.gruvbox_material_background = 'hard'
             vim.g.gruvbox_material_foreground = 'original'
             vim.g.gruvbox_material_transparent_background = 2
@@ -326,5 +326,17 @@ return {
         lazy = true,
         priority = 1000,
         event = 'UIEnter',
+        opts = {
+            options = {
+                transparent = true,
+                dim_inactive = false,
+                dim_inactive_windows = false,
+                styles = {
+                    comments = 'italic',
+                    keywords = 'bold',
+                    types = 'italic,bold',
+                }
+            }
+        }
     }
 }
