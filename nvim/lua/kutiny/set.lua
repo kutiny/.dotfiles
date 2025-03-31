@@ -1,61 +1,61 @@
 -- set leader key
 vim.g.mapleader = " "
 
-vim.opt.guicursor = ""
+vim.o.guicursor = ""
 
 -- set number line
-vim.opt.nu = true
+vim.o.nu = true
 -- set relative number line
-vim.opt.relativenumber = true
+vim.o.relativenumber = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
 
-vim.opt.smartindent = true
+vim.o.smartindent = true
 
-vim.opt.wrap = true
+vim.o.wrap = true
 
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
+vim.o.swapfile = false
+vim.o.backup = false
+vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.o.undofile = true
 
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
+vim.o.hlsearch = false
+vim.o.incsearch = true
 
-vim.opt.termguicolors = true
+vim.o.termguicolors = true
 
-vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
+vim.o.scrolloff = 8
+vim.o.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
-vim.opt.updatetime = 50
+vim.o.updatetime = 50
 
-vim.opt.colorcolumn = "80"
-vim.opt.cursorcolumn = true
-vim.opt.cursorline = true
-vim.opt.culopt = "line,number"
+vim.o.colorcolumn = "80"
+vim.o.cursorcolumn = true
+vim.o.cursorline = true
+vim.o.culopt = "line,number"
 
 -- vim.cmd[[highlight CursorColumn guibg=#c83e4d]]
 -- vim.cmd [[highlight CursorLine guibg=#32373B]]
 -- vim.cmd [[highlight ColorColumn guibg=#F4B860]]
 -- vim.cmd [[highlight ColorColumn guibg=#5B5F97]]
 
-vim.opt.splitright = true
-vim.opt.splitbelow = true
+vim.o.splitright = true
+vim.o.splitbelow = true
 
 vim.showmode = false
 
 -- folds
-vim.opt.foldmethod = "expr"
-vim.opt.foldenable = true
-vim.opt.foldlevelstart = 99
-vim.opt.foldlevel = 99
-vim.opt.foldcolumn = "0"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.cmdheight = 1
+vim.o.foldmethod = "expr"
+vim.o.foldenable = true
+vim.o.foldlevelstart = 99
+vim.o.foldlevel = 99
+vim.o.foldcolumn = "0"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.cmdheight = 1
 
 -- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 -- vim.diagnostic.config({ virtual_text = false })
