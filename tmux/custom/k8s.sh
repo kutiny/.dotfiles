@@ -3,9 +3,7 @@
 source $(dirname "$0")/tools/kit.sh
 
 init() {
-    local fg="colour7"
     local state=
-    local icon="󱃾"
     local system="$(uname)"
 
     if [[ "$system" == "Darwin" ]]; then
@@ -38,7 +36,6 @@ init() {
     if [[ "$code" == "143" || "$code" == "1" || "$code" == "124" || "$is_error" == "1" ]]; then
         state=""
     elif [[ "$code" == "0" ]]; then
-        fg=white
         state=$(kubectl config current-context)
         echo $state | grep -E '([a-zA-Z0-9-]+:){5}[a-z]+\/[a-z-]+' &> /dev/null
         isk=$?
@@ -53,7 +50,7 @@ init() {
         fi
     fi
 
-    print_pill "K8s" "$state" "true" "color110"
+    print_pill "" "$state" "true" "color110"
 }
 
 init
