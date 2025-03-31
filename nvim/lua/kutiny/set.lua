@@ -3,10 +3,8 @@ vim.g.mapleader = " "
 
 vim.o.guicursor = ""
 
--- set number line
 vim.o.nu = true
--- set relative number line
-vim.o.relativenumber = true
+vim.o.rnu = true
 
 vim.o.tabstop = 4
 vim.o.softtabstop = 4
@@ -57,5 +55,4 @@ vim.o.foldcolumn = "0"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.o.cmdheight = 1
 
--- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 -- vim.diagnostic.config({ virtual_text = false })
