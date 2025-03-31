@@ -14,8 +14,9 @@ showVpnStatus() {
     fi
 
     if [[ "$status" == "Disconnected" ]]; then
-        on="false"
-        value="󰶹"
+        # on="false"
+        # value="󰶹"
+        return
     fi
 
     print_pill $tag $value $on

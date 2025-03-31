@@ -33,11 +33,13 @@ init() {
     local code=$?
 
     if [[ "$code" == "143" || "$code" == "1" || "$code" == "124" ]]; then
-        state=""
+        # state=""
+        return
     elif [[ "$code" == "0" ]]; then
         arn=$(aws sts get-caller-identity | jq -r '.Arn')
         if [[ "$arn" == "" ]]; then
-            state=""
+            # state=""
+            return
         else
             state=$(echo $arn | awk -F'/' '{ print $2 }' | awk -F'-' '{ print toupper($2"-"$3) }')
             echo $state | grep -E '([a-zA-Z0-9-]+:){5}[a-z]+\/[a-z-]+' &> /dev/null
