@@ -3,7 +3,6 @@
 source $(dirname "$0")/tools/kit.sh
 
 function work {
-    # Bash: get true if current time is between 9am and 6pm and day is not saturday or sunday
     is_worktime=$(date +"%H" | awk '{print ($1 >= 9 && $1 < 18)}')
     is_weekend=$(date +"%u" | awk '{print ($1 >= 6)}')
     tag="Free"
