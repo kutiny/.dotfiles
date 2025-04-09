@@ -4,9 +4,9 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     cmd = { "Oil", },
     keys = {
-        { "<leader>pv", "<cmd>Oil<CR>",                                         { silent = true } },
+        { "<leader>pv", "<cmd>lua require'oil'.open(vim.fn.getcwd())<CR>",      { silent = true } },
         { "<leader>pr", "<cmd>lua require'oil.actions'.refresh.callback()<CR>", { silent = true } },
-        { "<leader>ph", "<cmd>lua require'oil'.open(vim.fn.getcwd())<CR>", { silent = true } },
+        { "<leader>pf", "<cmd>lua require'oil'.toggle_float()<CR>",             { silent = true } },
     },
     opts = {
         -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
@@ -117,16 +117,19 @@ return {
         -- Configuration for the floating window in oil.open_float
         float = {
             -- Padding around the floating window
-            padding = 5,
-            max_width = 0,
+            padding = 0,
+            max_width = 50,
             max_height = 0,
-            border = "rounded",
+            height = 100,
+            border = "solid",
             win_options = {
-                winblend = 0,
+                winblend = 1,
             },
             -- This is the config that will be passed to nvim_open_win.
             -- Change values here to customize the layout
             override = function(conf)
+                conf.row = 0
+                conf.col = 0
                 return conf
             end,
         },
