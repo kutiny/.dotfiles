@@ -4,9 +4,9 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     cmd = { "Oil", },
     keys = {
-        { "<leader>pv", "<cmd>lua require'oil'.open(vim.fn.getcwd())<CR>",      { silent = true } },
+        { "<leader>pv", "<cmd>Oil<CR>",                                         { silent = true } },
         { "<leader>pr", "<cmd>lua require'oil.actions'.refresh.callback()<CR>", { silent = true } },
-        { "<leader>pf", "<cmd>lua require'oil'.toggle_float()<CR>",             { silent = true } },
+        { "<leader>ph", "<cmd>lua require'oil'.toggle_float()<CR>",             { silent = true } },
     },
     opts = {
         -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
