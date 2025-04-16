@@ -7,20 +7,17 @@ label="ByMA"
 value="N/A"
 
 fetch_data() {
-    local html_response=$(curl --silent https://dolarhoy.com/)
+    local url="https://www.bna.com.ar/Personas"
+    local html_response=$(curl --silent $url)
     local buy_price=$(echo $html_response | \
         xmllint --nowarning --html --xpath \
-        "/html/body/div[5]/div[2]/div[1]/div[1]/div[2]/section/div/div/div[2]/div[1]/div/div[2]/div[3]/div/div[1]/div[2]/text()" - |\
+        "/html/body/main/div/div/div[4]/div[1]/div/div/div[2]/table/tbody/tr[1]/td[2]/text()" - |\
         tail -1 | tr -d '$' | sed 's/\..*//g')
     local sell_price=$(echo $html_response | \
         xmllint --nowarning --html --xpath \
-        "/html/body/div[5]/div[2]/div[1]/div[1]/div[2]/section/div/div/div[2]/div[1]/div/div[2]/div[3]/div/div[3]/div[1]/div[2]/text()" - |\
+        "/html/body/main/div/div/div[4]/div[1]/div/div/div[2]/table/tbody/tr[1]/td[3]/text()" - |\
         tail -1 | tr -d '$' | sed 's/\..*//g')
-    local change=$(echo $html_response |\
-        xmllint --nowarning --html --xpath \
-        "/html/body/div[5]/div[2]/div[1]/div[1]/div[2]/section/div/div/div[2]/div[1]/div/div[2]/div[3]/div/div[3]/div[2]/div/text()" - |\
-        tail -1)
-    is_open=$(curl --silent https://open.bymadata.com.ar/vanoms-be-core/rest/api/bymadata/free/market-open \
+    local is_open=$(curl --silent https://open.bymadata.com.ar/vanoms-be-core/rest/api/bymadata/free/market-open \
 --header 'Cache-Control: no-cache,no-store,max-age=1,must-revaliidate' \
 --header 'Expires: 1' \
 --header 'Options: dashboard')
