@@ -3,7 +3,7 @@
 source $(dirname "$0")/tools/kit.sh
 
 is_open=false
-label="ByMA"
+label="USD"
 value="N/A"
 
 fetch_data() {
@@ -39,16 +39,7 @@ fetch_data() {
 
         value=$(( (buy_price + sell_price) / 2 ))
         value="$(( value / 100 )).${value: -2}"
-
-        if [[ $(echo $change | tr -d '$.-%') =~ ^0+$ ]]; then
-            change_icon=""
-        elif [[ "$change" =~ ^-.*$ ]]; then
-            change_icon=""
-        else
-            change_icon=""
-        fi
-
-        value="$change_icon $value $(echo $change | tr -d '-%.')"
+        value="\$$value"
     fi
 }
 
