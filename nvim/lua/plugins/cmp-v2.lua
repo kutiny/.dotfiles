@@ -25,7 +25,18 @@ return {
             -- C-k: Toggle signature help (if signature.enabled = true)
             --
             -- See :h blink-cmp-config-keymap for defining your own keymap
-            keymap = { preset = 'default' },
+            keymap = {
+                preset = 'default',
+                ['<C-n>'] = {
+                    function(cmp)
+                        if not cmp.is_menu_visible() then
+                            cmp.show()
+                            return true
+                        end
+                    end,
+                    'select_next',
+                }
+            },
 
             appearance = {
                 -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
