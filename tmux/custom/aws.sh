@@ -41,7 +41,7 @@ init() {
             # state=""
             return
         else
-            state=$(echo $arn | awk -F'/' '{ print $2 }' | awk -F'-' '{ print toupper($2"-"$3) }')
+            state=$(echo $arn | awk -F'/' '{ print toupper($2) }' | sed 's/EKSDEFAULTPOLICYFOR-//')
             echo $state | grep -E '([a-zA-Z0-9-]+:){5}[a-z]+\/[a-z-]+' &> /dev/null
             isk=$(echo $arn | awk -F':' '{ print $5 }')
             z=STG
