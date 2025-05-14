@@ -97,3 +97,5 @@ else
     source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
+export TERM=xterm-256color
+
