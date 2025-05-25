@@ -1,6 +1,13 @@
 #! /bin/bash
 alias t=tmux
-alias ta="tmux attach"
+
+function ta() {
+    if tmux has 2> /dev/null; then
+        tmux attach
+    else
+        tmux new -s Personal
+    fi
+}
 
 function taa() {
     opt=$1
