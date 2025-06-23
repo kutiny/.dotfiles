@@ -1,6 +1,7 @@
 return {
     'nvimdev/dashboard-nvim',
     lazy = false,
+    enabled = false,
     config = function()
         -- vim.cmd('highlight KittyConf guifg=#2f7366')
         require('dashboard').setup {
