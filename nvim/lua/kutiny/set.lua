@@ -1,5 +1,6 @@
 -- set leader key
 vim.g.mapleader = " "
+vim.o.background = "dark"
 
 vim.o.guicursor = ""
 

@@ -1,3 +1,5 @@
+local transparency = true
+
 return {
     {
         'kutiny/colors.nvim',
@@ -5,7 +7,7 @@ return {
         dev = false,
         event = { 'VeryLazy' },
         opts = {
-            enable_transparent_bg = true,
+            enable_transparent_bg = transparency,
             fallback_theme_name = 'catppuccin',
             hide_builtins = true,
             ignore_themes = {
@@ -13,6 +15,8 @@ return {
                 'rose-pine-dawn',
                 'rose-pine-moon',
                 'rose-pine-main',
+                'evergarden-summer',
+                'evergarden-spring',
                 'dawnfox',
                 'dayfox',
                 'tokyonight-day',
@@ -41,12 +45,12 @@ return {
         priority = 1000,
         event = 'UIEnter',
         opts = {
-            transparent = true,
+            transparent = transparency,
         },
         init = function()
             vim.g.gruvbox_material_background = 'hard'
             vim.g.gruvbox_material_foreground = 'original'
-            vim.g.gruvbox_material_transparent_background = 2
+            vim.g.gruvbox_material_transparent_background = transparency and 2 or 0
         end
     },
     {
@@ -70,7 +74,7 @@ return {
         event = 'UIEnter',
         enabled = true,
         opts = {
-            transparent = true,
+            transparent = transparency,
         },
     },
     {
@@ -81,7 +85,7 @@ return {
         enabled = true,
         priority = 1000,
         config = function()
-            vim.g.sonokai_transparent_background = true
+            vim.g.sonokai_transparent_background = transparency
         end,
     },
     {
@@ -97,7 +101,7 @@ return {
                     light = "latte",
                     dark = "mocha",
                 },
-                transparent_background = true, -- disables setting the background color.
+                transparent_background = transparency, -- disables setting the background color.
                 show_end_of_buffer = false,    -- shows the '~' characters after the end of buffers
                 term_colors = false,           -- sets terminal colors (e.g. `g:terminal_color_0`)
                 dim_inactive = {
@@ -147,7 +151,7 @@ return {
         enabled = true,
         event = 'UIEnter',
         opts = {
-            transparent_background = true,
+            transparent_background = transparency,
             contrast_dark = 'hard', -- 'hard'|'medium'|'soft'
             overrides = {},         -- add custom overrides
         },
@@ -175,7 +179,7 @@ return {
                 styles = {
                     bold = true,
                     italic = true,
-                    transparency = true,
+                    transparency = transparency,
                 },
 
                 groups = {
