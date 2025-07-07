@@ -80,7 +80,13 @@ return {
 
             -- (Default) Only show the documentation popup when manually triggered
             completion = {
-                documentation = { auto_show = false },
+                documentation = {
+                    auto_show = false,
+                    window = {
+                        border = 'rounded',
+                        winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
+                    }
+                },
                 ghost_text = { enabled = true, show_with_menu = true },
                 list = {
                     selection = {

@@ -57,3 +57,9 @@ vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.o.cmdheight = 1
 
 -- vim.diagnostic.config({ virtual_text = false })
+
+vim.cmd [[
+  highlight NormalFloat guibg=#1e1e2e guifg=#cdd6f4
+  highlight FloatBorder guibg=#1e1e2e guifg=#585b70
+]]
+

@@ -21,3 +21,12 @@ vim.keymap.set("n", "<C-w>>", "<CMD>vertical resize +15<CR>")
 vim.keymap.set("n", "<C-w>+", "<CMD>resize +5<CR>")
 vim.keymap.set("n", "<C-w>-", "<CMD>resize -5<CR>")
 
+-- To instead override globally
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+---@diagnostic disable-next-line: duplicate-set-field
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.border = opts.border or 'single'
+  return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
+
