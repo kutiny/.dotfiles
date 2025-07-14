@@ -99,3 +99,8 @@ fi
 
 export TERM=xterm-256color
 
+function prompt_node_version() {
+  if command -v node > /dev/null 2>&1; then
+    echo "$(node -v)"
+  fi
+}
