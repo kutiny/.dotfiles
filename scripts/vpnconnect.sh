@@ -7,7 +7,7 @@
 
 PASS_FILE_PATH=~/.enc_pass
 TOTP_FILE_PATH=~/.enc_totp
-ANYCONNECT_PATH=/opt/cisco/anyconnect/bin/vpn
+ANYCONNECT_PATH=/opt/cisco/secureclient/bin/vpn
 
 # COMMAND_NAME="<path-to-script>/$(awk -F "/" '{print $(NF)}' <(echo "$0"))"
 
@@ -143,7 +143,7 @@ function vpn_status() {
     if [[ "$verbose" == "1" ]]; then
         $ANYCONNECT_PATH status
     else
-        $ANYCONNECT_PATH status | grep 'state' | awk -F ': ' 'NR==1{ print "Status:", $2 }'
+        $ANYCONNECT_PATH status | grep 'state' | awk -F ': ' 'NR==2{ print "Status:", $2 }'
     fi
 }
 
