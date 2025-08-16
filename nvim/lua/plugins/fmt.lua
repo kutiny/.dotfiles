@@ -23,6 +23,7 @@ return {
             css = { 'prettier' },
             scss = { 'prettier' },
             less = { 'prettier' },
+            markdown = { 'prettier' },
             html = { 'prettier' },
             sh = { 'shfmt' },
         }
