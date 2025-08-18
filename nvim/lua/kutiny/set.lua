@@ -47,7 +47,27 @@ vim.o.splitbelow = true
 
 vim.showmode = false
 
--- folds
+-- ### folds block start ###
+
+CustomFoldText = function()
+    local foldStartLine = table.concat(vim.fn.getbufline(vim.api.nvim_get_current_buf(), vim.v.foldstart));
+	local border = "-";
+	local padding = 0;
+	local gap = foldStartLine:match('Gap:%s*"(%d+)"') ~= nil and tonumber(foldStartLine:match('Gap:%s*"(%d+)"')) or 3;
+
+    local icon = "  "
+    local lines = " " .. tostring((vim.v.foldend - vim.v.foldstart) + 1) .. " Lines ";
+	local totalVirtualColumns = vim.api.nvim_win_get_width(0) - vim.fn.getwininfo(vim.fn.win_getid())[1].textoff;
+	local fillCharLen = totalVirtualColumns - vim.fn.strchars(foldStartLine .. string.rep(border, padding) .. icon .. string.rep(border, gap * 2) .. lines .. border);
+
+	local _out = string.rep("-", padding) .. icon .. string.rep(" ", gap) .. foldStartLine .. string.rep(" ", gap) .. string.rep(border, fillCharLen) .. lines .. border;
+
+	return _out;
+end
+
+
+vim.o.foldtext = "v:lua.CustomFoldText()"
+
 vim.o.foldmethod = "expr"
 vim.o.foldenable = true
 vim.o.foldlevelstart = 99
@@ -55,6 +75,8 @@ vim.o.foldlevel = 99
 vim.o.foldcolumn = "0"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.o.cmdheight = 1
+
+-- ### folds block end ###
 
 -- vim.diagnostic.config({ virtual_text = false })
 
