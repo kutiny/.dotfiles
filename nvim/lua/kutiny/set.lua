@@ -51,16 +51,15 @@ vim.showmode = false
 
 CustomFoldText = function()
     local foldStartLine = table.concat(vim.fn.getbufline(vim.api.nvim_get_current_buf(), vim.v.foldstart));
-	local border = "-";
+	local border = " ";
 	local padding = 0;
 	local gap = foldStartLine:match('Gap:%s*"(%d+)"') ~= nil and tonumber(foldStartLine:match('Gap:%s*"(%d+)"')) or 3;
-
     local icon = "  "
-    local lines = " " .. tostring((vim.v.foldend - vim.v.foldstart) + 1) .. " Lines ";
+    local lines = " " .. tostring((vim.v.foldend - vim.v.foldstart) + 1) .. " Lines ";
 	local totalVirtualColumns = vim.api.nvim_win_get_width(0) - vim.fn.getwininfo(vim.fn.win_getid())[1].textoff;
-	local fillCharLen = totalVirtualColumns - vim.fn.strchars(foldStartLine .. string.rep(border, padding) .. icon .. string.rep(border, gap * 2) .. lines .. border);
+	local fillCharLen = math.max(totalVirtualColumns - vim.fn.strchars(foldStartLine .. string.rep(border, padding) .. icon .. string.rep(border, gap * 2) .. lines .. border), 0);
 
-	local _out = string.rep("-", padding) .. icon .. string.rep(" ", gap) .. foldStartLine .. string.rep(" ", gap) .. string.rep(border, fillCharLen) .. lines .. border;
+	local _out = string.rep("-", padding) .. icon .. string.rep(" ", gap) .. foldStartLine .. string.rep(" ", gap) ..  lines .. string.rep(border, fillCharLen) .. border;
 
 	return _out;
 end
