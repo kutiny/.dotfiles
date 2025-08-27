@@ -9,7 +9,11 @@ source ~/.dotfiles/pub/shell/folders.sh
 source ~/.dotfiles/pub/shell/vpn.aliases.sh
 
 _pvt_loader=~/.dotfiles/pvt/shell/.loaderrc
+
 if [[ -f $_pvt_loader ]]; then
     source $_pvt_loader
 fi
 
+if [ $(uname) = "Darwin" ]; then
+    source ~/.dotfiles/pub/shell/manual-buildx.sh
+fi
