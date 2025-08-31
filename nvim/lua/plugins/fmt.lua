@@ -28,6 +28,7 @@ return {
             markdown = { 'prettier' },
             html = { 'prettier' },
             sh = { 'shfmt' },
+            cpp = { 'clang-format' },
         }
 
         local group = vim.api.nvim_create_augroup('ktn_fmt', { clear = true })
