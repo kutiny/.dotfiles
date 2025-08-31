@@ -1,4 +1,5 @@
-#! /bin/bash
+#! /usr/bin/env bash
+
 function h {
     folders_file=~/.ffolders_file
 

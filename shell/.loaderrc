@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env bash
 
 source ~/.dotfiles/pub/shell/git.custom.sh
 source ~/.dotfiles/pub/shell/kube.custom.sh

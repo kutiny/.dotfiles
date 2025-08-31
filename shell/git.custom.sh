@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /usr/bin/env bash
 
 function select_git_ssh() {
 	echo -e "SSH Key set to \e[32m~/.ssh/$1";
