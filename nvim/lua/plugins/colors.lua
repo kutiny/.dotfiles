@@ -1,4 +1,4 @@
-local transparency = true
+local transparency = false
 
 return {
     {
@@ -235,6 +235,18 @@ return {
     },
     {
         "savq/melange-nvim",
+        priority = 1000,
+        lazy = true,
+        event = 'UIEnter',
+    },
+    {
+        'tanvirtin/monokai.nvim',
+        priority = 1000,
+        lazy = true,
+        event = 'UIEnter',
+    },
+    {
+        'vague2k/vague.nvim',
         priority = 1000,
         lazy = true,
         event = 'UIEnter',
