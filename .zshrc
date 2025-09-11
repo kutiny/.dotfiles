@@ -100,7 +100,17 @@ fi
 export TERM=xterm-256color
 
 function prompt_node_version() {
-  if command -v node > /dev/null 2>&1; then
-    echo "$(node -v)"
-  fi
+    if [ -f package.json ]; then
+        if command -v node > /dev/null 2>&1; then
+            echo "  $(node -v) "
+        fi
+    fi
 }
+
+# pnpm
+export PNPM_HOME="/Users/alex/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
