@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /usr/bin/env bash
 
 # declare -A window_emojis
 # emoji_window_emojis[1]="󰬺"

@@ -1,10 +1,10 @@
-# !/bin/bash
+# !/usr/bin/env bash
 
 platform=$(uname)
-platform="Linux"
-if [ $platform = "Darwin" ]; then
+
+if [ "$platform" = "Darwin" ]; then
     printf ""
-elif [ $platform = "Linux" ]; then
+elif ["$platform" = "Linux"]; then
     printf ""
 fi
 

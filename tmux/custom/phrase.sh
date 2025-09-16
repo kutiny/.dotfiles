@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env bash
 STATE_FILE="$HOME/.phrase.state"
 [ ! -f "$STATE_FILE" ] && echo 0 > "$STATE_FILE"
 curr=$(cat "$STATE_FILE")

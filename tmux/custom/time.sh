@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env bash
 
 node -e "
 const fmtCL = new Intl.DateTimeFormat('es-AR', {
