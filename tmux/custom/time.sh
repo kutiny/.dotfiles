@@ -15,7 +15,14 @@ const fmtAR = new Intl.DateTimeFormat('es-AR', {
     timeZone: 'America/Argentina/Cordoba',
 });
 
+const fmtUS = new Intl.DateTimeFormat('en-US', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+    timeZone: 'America/New_York',
+});
+
 const date = new Date();
 
-process.stdout.write('🇦🇷 ' + fmtAR.format(date) + '  🇨🇱 ' + fmtCL.format(date) + ' ');
+process.stdout.write('🇦🇷 (CBA) ' + fmtAR.format(date) + '  🇨🇱 (SGO) ' + fmtCL.format(date) + '  🇺🇸 (NY) ' + fmtUS.format(date) + ' ');
 "
