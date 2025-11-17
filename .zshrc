@@ -116,4 +116,6 @@ esac
 # pnpm end
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+if [[ $(which ng &> /dev/null ) && true ]]; then
+    source <(ng completion script)
+fi
