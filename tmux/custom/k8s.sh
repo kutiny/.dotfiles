@@ -3,6 +3,7 @@
 source $(dirname "$0")/tools/kit.sh
 
 init() {
+    local nocolor="$1"
     local state=
     local system="$(uname)"
 
@@ -51,7 +52,11 @@ init() {
         fi
     fi
 
-    print_pill "" "$state" "true" "color110"
+    if [[ "$nocolor" == "NOCOLOR" ]]; then
+        printf "${state}"
+    else
+        print_pill "" "$state" "true" "color110"
+    fi
 }
 
-init
+init $1

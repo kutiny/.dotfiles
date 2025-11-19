@@ -159,3 +159,5 @@ function taa() {
 
     main
 }
+
+alias tst="~/.dotfiles/pub/tmux/status.sh"
