@@ -3,7 +3,6 @@ return {
         'f-person/git-blame.nvim',
         cmd = { 'GitBlameToggle' },
         opts = {
-            enabled = false,
             delay = 100,
             message_template = " <summary> • <date> • <author> • <<sha>>", -- template for the blame message, check the Message template section for more options
             date_format = "%d %b %Y %H:%M:%S (%r)", -- template for the date, check Date format section for more options
