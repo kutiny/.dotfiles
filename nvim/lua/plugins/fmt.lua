@@ -12,8 +12,24 @@ return {
 
         g.ale_ruby_rubocop_auto_correct_all = 1
 
+         -- see https://github.com/dense-analysis/ale/blob/master/ale_linters/
         g.ale_linters = {
             lua = { 'lua_language_server' },
+            scss = { 'scsslint' },
+            javascript = { 'eslint' },
+            typescript = { 'eslint' },
+            sql = { 'sqlint' },
+            pug = { 'puglint' },
+            php = { 'php' },
+            markdown = { 'marksman' },
+            make = { 'checkmake' },
+            json = { 'jsonlint' },
+            html = { 'eslint' },
+            graphql = { 'eslint' },
+            dockerfile = { 'dockerlinter' },
+            desktop = { 'desktopfile_lint' },
+            cpp = { 'cspell' },
+
         }
 
         g.ale_fixers = {
