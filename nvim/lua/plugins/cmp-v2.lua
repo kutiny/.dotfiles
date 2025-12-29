@@ -78,6 +78,11 @@ return {
                 },
             },
 
+            signature = {
+                window = {
+                    border = 'rounded'
+                }
+            },
             -- (Default) Only show the documentation popup when manually triggered
             completion = {
                 documentation = {
@@ -94,13 +99,14 @@ return {
                         auto_insert = false,
                     }
                 },
+
                 menu = {
+                    border = 'rounded',
                     auto_show = false,
                     draw = {
-                        columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
+                        columns = { { "label", "label_description", gap = 1 }, { "kind_icon" }, { "kind" }, { "source_name" } },
                     }
                 }
-
             },
 
             -- Default list of enabled providers defined so that you can extend it
