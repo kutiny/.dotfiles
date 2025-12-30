@@ -4,6 +4,7 @@ alias t=tmux
 
 function ta() {
     if tmux has 2> /dev/null; then
+        printf "\033]2;󰊢  Runtime Chaos\007";
         tmux attach
     else
         tmux new -s Personal
