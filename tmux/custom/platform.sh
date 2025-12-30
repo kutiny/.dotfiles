@@ -8,4 +8,4 @@ elif ["$platform" = "Linux"]; then
     printf ""
 fi
 
-printf " ${platform}"
+# printf " ${platform}"
