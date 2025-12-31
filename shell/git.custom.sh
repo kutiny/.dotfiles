@@ -1,14 +1,31 @@
 #! /usr/bin/env bash
 
 function select_git_ssh() {
-	echo -e "SSH Key set to \e[32m~/.ssh/$1";
-	export GIT_SSH_COMMAND="ssh -i ~/.ssh/$1"
+    param=$1
+    echo $param
+    if [[ -z $param ]]; then
+        if [[ -d ~/.ssh ]]; then
+            echo ".ssh exists"
+            param=$(ls ~/.ssh/ | grep -v -E 'known_hosts|authorized_keys|.*\.key$|.*\.pub' | fzf --prompt="Select SSH Key: ")
+        else
+            echo "Couldn't read ~/.ssh directory. Please enter key manually: "
+            read param
+        fi
+    fi
+
+    export GIT_SSH_COMMAND="ssh -i ~/.ssh/${param}"
+	echo -e "SSH Key set to \e[32m~/.ssh/${param}"
 }
 
 alias sgs=select_git_ssh
+
 function update_branch() {
   cbranch=$(git branch --show-current)
   nbranch=$1
+  if [[ -z $nbranch ]]; then
+      echo -e "\x1b[33mUsage: update_branch [branch to update]\x1b[0m"
+      return
+  fi
   git checkout $nbranch
   git pull
   git checkout $cbranch
@@ -32,10 +49,10 @@ function post_merge() {
 }
 
 alias ub=update_branch
-alias g=git
-alias gb="git branch"
-alias gch="git checkout"
-alias gcb="git checkout -b"
-alias cdw="cd /c/workspace/"
-alias gbd="git branch -d"
+
+if [[ $(uname) == "Darwin" ]] && [[ -d ~/workspace ]]; then
+    alias cdw="cd ~/workspace"
+elif [[ -d /c/workspace ]]; then
+    alias cdw="cd /c/workspace/"
+fi
 
