@@ -1,4 +1,4 @@
-local transparency = true
+local transparency = false
 
 return {
     {
@@ -61,7 +61,7 @@ return {
         event = 'UIEnter',
         enabled = true,
         init = function()
-            vim.g.nightflyTransparent = true
+            vim.g.nightflyTransparent = transparency
             vim.g.nightflyUnderlineMatchParen = true
             vim.g.nightflyWinSeparator = 0
         end,
@@ -76,17 +76,6 @@ return {
         opts = {
             transparent = transparency,
         },
-    },
-    {
-        'sainnhe/sonokai',
-        name = 'sonokai',
-        lazy = true,
-        event = 'UIEnter',
-        enabled = true,
-        priority = 1000,
-        config = function()
-            vim.g.sonokai_transparent_background = transparency
-        end,
     },
     {
         'catppuccin/nvim',
@@ -148,7 +137,7 @@ return {
         'comfysage/evergarden',
         priority = 1000,
         lazy = true,
-        enabled = true,
+        enabled = false,
         event = 'UIEnter',
         opts = {
             transparent_background = transparency,
@@ -234,19 +223,7 @@ return {
         name = 'rose-pine',
     },
     {
-        "savq/melange-nvim",
-        priority = 1000,
-        lazy = true,
-        event = 'UIEnter',
-    },
-    {
         'tanvirtin/monokai.nvim',
-        priority = 1000,
-        lazy = true,
-        event = 'UIEnter',
-    },
-    {
-        'vague2k/vague.nvim',
         priority = 1000,
         lazy = true,
         event = 'UIEnter',

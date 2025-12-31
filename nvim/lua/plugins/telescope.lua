@@ -26,7 +26,17 @@ return {
         { '<leader>pf', function()
             local builtin = require('telescope.builtin')
             local themes = require('telescope.themes')
-            builtin.find_files(themes.get_dropdown({}))
+            builtin.find_files(themes.get_dropdown({
+                -- width = 0.99,
+                -- winblend = 10,
+                -- previewer = true,
+                -- results_height = 15,
+                -- prompt = ' ',
+                -- layout_config = {
+                --     prompt_position = 'top',
+                --     width = 100,
+                -- },
+            }))
         end },
         { '<leader>fs', function()
             local builtin = require('telescope.builtin')
@@ -41,6 +51,9 @@ return {
         local lga_actions = require("telescope-live-grep-args.actions")
         require('telescope').setup({
             defaults = {
+                preview = {
+                    filesize_limit = 0.1,
+                },
                 -- NOTE: this is the only thing that works for hidden files search in rp
                 vimgrep_arguments = {
                     "rg",
@@ -51,6 +64,14 @@ return {
                     "--column",
                     "--hidden",
                     "--smart-case",
+                },
+                layout_strategy = "horizontal",
+                layout_config = {
+                    horizontal = {
+                        width = function(_, max_cols, _)
+                            return math.min(max_cols, 160)
+                        end,
+                    }
                 },
                 -- mappings = {
                 --     n = {
