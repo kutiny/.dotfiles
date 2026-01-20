@@ -119,3 +119,4 @@ esac
 if [[ $(which ng &> /dev/null ) && true ]]; then
     source <(ng completion script)
 fi
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
