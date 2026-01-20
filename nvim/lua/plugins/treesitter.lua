@@ -3,7 +3,7 @@ return {
     build = ':TSUpdate',
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
-        require 'nvim-treesitter.configs'.setup {
+        require 'nvim-treesitter.config'.setup {
             ensure_installed = { "javascript", "typescript", "c", "lua", "vim", "vimdoc", "query", "comment" },
             sync_install = false,
             -- Automatically install missing parsers when entering buffer
