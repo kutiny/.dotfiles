@@ -108,7 +108,12 @@ function prompt_node_version() {
 }
 
 # pnpm
-export PNPM_HOME="/Users/alex/Library/pnpm"
+if [[ -d ${HOME}/.pnpm ]]; then
+    export PNPM_HOME="${HOME}/.pnpm"
+elif [[ -d ${HOME}/Library/.pnpm ]]; then
+    export PNPM_HOME="${HOME}/Library/.pnpm"
+fi
+
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -119,4 +124,8 @@ esac
 if [[ $(which ng &> /dev/null ) && true ]]; then
     source <(ng completion script)
 fi
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+if [[ -d /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+    source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
