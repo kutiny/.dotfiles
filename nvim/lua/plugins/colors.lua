@@ -12,15 +12,6 @@ return {
             hide_builtins = true,
             ignore_themes = {
                 'catppuccin-latte',
-                'rose-pine-dawn',
-                'rose-pine-moon',
-                'rose-pine-main',
-                'evergarden-summer',
-                'evergarden-spring',
-                'dawnfox',
-                'dayfox',
-                'tokyonight-day',
-                'witch-light',
             },
             border = 'rounded',
             icon = nil,
@@ -65,17 +56,6 @@ return {
             vim.g.nightflyUnderlineMatchParen = true
             vim.g.nightflyWinSeparator = 0
         end,
-    },
-    {
-        "folke/tokyonight.nvim",
-        lazy = true,
-        name = 'tokyonight',
-        priority = 1000,
-        event = 'UIEnter',
-        enabled = true,
-        opts = {
-            transparent = transparency,
-        },
     },
     {
         'catppuccin/nvim',
@@ -134,98 +114,16 @@ return {
         end
     },
     {
-        'comfysage/evergarden',
-        priority = 1000,
-        lazy = true,
-        enabled = false,
-        event = 'UIEnter',
-        opts = {
-            transparent_background = transparency,
-            contrast_dark = 'hard', -- 'hard'|'medium'|'soft'
-            overrides = {},         -- add custom overrides
-        },
-        name = 'evergarden',
-    },
-    {
-        'rose-pine/neovim',
-        priority = 1000,
-        enabled = true,
-        lazy = true,
-        event = 'UIEnter',
-        config = function()
-            require("rose-pine").setup({
-                variant = "auto",      -- auto, main, moon, or dawn
-                dark_variant = "main", -- main, moon, or dawn
-                dim_inactive_windows = false,
-                extend_background_behind_borders = true,
-
-                enable = {
-                    terminal = true,
-                    legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
-                    migrations = true,        -- Handle deprecated options automatically
-                },
-
-                styles = {
-                    bold = true,
-                    italic = true,
-                    transparency = transparency,
-                },
-
-                groups = {
-                    border = "muted",
-                    link = "iris",
-                    panel = "surface",
-
-                    error = "love",
-                    hint = "iris",
-                    info = "foam",
-                    note = "pine",
-                    todo = "rose",
-                    warn = "gold",
-
-                    git_add = "foam",
-                    git_change = "rose",
-                    git_delete = "love",
-                    git_dirty = "rose",
-                    git_ignore = "muted",
-                    git_merge = "iris",
-                    git_rename = "pine",
-                    git_stage = "iris",
-                    git_text = "rose",
-                    git_untracked = "subtle",
-
-                    h1 = "iris",
-                    h2 = "foam",
-                    h3 = "rose",
-                    h4 = "gold",
-                    h5 = "pine",
-                    h6 = "foam",
-                },
-
-                highlight_groups = {
-                    -- Comment = { fg = "foam" },
-                    -- VertSplit = { fg = "muted", bg = "muted" },
-                },
-
-                before_highlight = function(group, highlight, palette)
-                    -- Disable all undercurls
-                    -- if highlight.undercurl then
-                    --     highlight.undercurl = false
-                    -- end
-                    --
-                    -- Change palette colour
-                    -- if highlight.fg == palette.pine then
-                    --     highlight.fg = palette.foam
-                    -- end
-                end,
-            })
-        end,
-        name = 'rose-pine',
-    },
-    {
         'tanvirtin/monokai.nvim',
         priority = 1000,
         lazy = true,
         event = 'UIEnter',
+    },
+    {
+        'yorumicolors/yorumi.nvim',
+        priority = 1000,
+        lazy = true,
+        event = 'UIEnter',
+        name = 'Yorumi',
     },
 }
