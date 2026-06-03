@@ -129,3 +129,4 @@ if [[ -d /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
+export PATH="$HOME/.local/bin:$PATH"

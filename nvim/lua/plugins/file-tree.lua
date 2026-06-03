@@ -2,6 +2,7 @@ return {
     {
         'nvim-tree/nvim-tree.lua',
         lazy = true,
+        enabled = true,
         event = {'VeryLazy'},
         -- event = { 'NvimTreeToggle', 'NvimTreeFocus', 'NvimTreeFindFile', 'NvimTreeCollapse' },
         opts = {
