@@ -130,3 +130,18 @@ if [[ -d /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 export PATH="$HOME/.local/bin:$PATH"
+if [[ -d /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+    source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
+# fnm
+export PATH="/Users/alex/.local/state/fnm_multishells/3998_1779562374736/bin":$PATH
+export FNM_MULTISHELL_PATH="/Users/alex/.local/state/fnm_multishells/3998_1779562374736"
+export FNM_VERSION_FILE_STRATEGY="local"
+export FNM_DIR="/Users/alex/.local/share/fnm"
+export FNM_LOGLEVEL="info"
+export FNM_NODE_DIST_MIRROR="https://nodejs.org/dist"
+export FNM_COREPACK_ENABLED="false"
+export FNM_RESOLVE_ENGINES="true"
+export FNM_ARCH="arm64"
+
