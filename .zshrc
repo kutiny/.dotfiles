@@ -89,14 +89,6 @@ export NVM_DIR="$HOME/.nvm"
 
 source ~/.dotfiles/pub/shell/.loaderrc
 
-if [ ! -f ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-    # installed via homebrew -- see: https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#installation
-    source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-else
-    # installed manually
-    source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
-
 export TERM=xterm-256color
 
 function prompt_node_version() {
@@ -125,10 +117,6 @@ if [[ $(which ng &> /dev/null ) && true ]]; then
     source <(ng completion script)
 fi
 
-if [[ -d /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
-    source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-
 export PATH="$HOME/.local/bin:$PATH"
 if [[ -d /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
     source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -147,3 +135,6 @@ export FNM_ARCH="arm64"
 
 export GPG_TTY=$(tty)
 gpgconf --launch gpg-agent >/dev/null 2>&1
+
+source ~/.dotfiles/pub/omz/plugins.zsh
+
