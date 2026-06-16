@@ -145,3 +145,5 @@ export FNM_COREPACK_ENABLED="false"
 export FNM_RESOLVE_ENGINES="true"
 export FNM_ARCH="arm64"
 
+export GPG_TTY=$(tty)
+gpgconf --launch gpg-agent >/dev/null 2>&1
