@@ -50,9 +50,3 @@ function post_merge() {
 
 alias ub=update_branch
 
-if [[ $(uname) == "Darwin" ]] && [[ -d ~/workspace ]]; then
-    alias cdw="cd ~/workspace"
-elif [[ -d /c/workspace ]]; then
-    alias cdw="cd /c/workspace/"
-fi
-

@@ -8,23 +8,10 @@ if [[ "$?" -eq 0 ]]; then
     alias k=kubecolor
 fi
 
-function kpf() {
-  service=$(kubectl get po | grep $1 | head -n1 | awk '{print $1}')
-  echo -e "Forwarding service \e[32m$service\e[0m"
-  kubectl port-forward $service $2
-}
-
 function kterm() {
   service=$(kubectl get po | grep $1 | head -n1 | awk '{print $1}')
   echo -e "Opening terminal in \e[32m$service\e[0m"
   kubectl exec -it $service -- sh
-}
-
-function kdestroy() {
-  service=$(kubectl get po | grep $1 | head -n1 | awk '{print $1}')
-  deployment=$(kubectl get deploy -o name | grep $1 | head -n1)
-  echo -e "Destroying pod \e[32m$service\e[0m"
-  kubectl delete po $service && kubectl rollout status $deployment
 }
 
 function klogs() {

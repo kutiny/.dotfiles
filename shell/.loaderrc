@@ -2,10 +2,7 @@
 
 source ~/.dotfiles/pub/shell/git.custom.sh
 source ~/.dotfiles/pub/shell/kube.custom.sh
-source ~/.dotfiles/pub/shell/nvim.custom.sh
-source ~/.dotfiles/pub/shell/kutiny.custom.sh
 source ~/.dotfiles/pub/shell/tmux.custom.sh
-source ~/.dotfiles/pub/shell/folders.sh
 source ~/.dotfiles/pub/shell/vpn.aliases.sh
 
 _pvt_loader=~/.dotfiles/pvt/shell/.loaderrc
