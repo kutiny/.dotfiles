@@ -7,5 +7,3 @@ if [ "$platform" = "Darwin" ]; then
 elif ["$platform" = "Linux"]; then
     printf ""
 fi
-
-# printf " ${platform}"
