@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="gozilla"
+ZSH_THEME="bira"
 CASE_SENSITIVE="true"
 
 zstyle ':omz:update' mode reminder
