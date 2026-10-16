@@ -1,6 +1,6 @@
 return {
-    "vinnymeller/swagger-preview.nvim",
-    cmd = { "SwaggerPreview", "SwaggerPreviewStop", "SwaggerPreviouToggle" },
-    build = "npm i",
-    config = true
+  "vinnymeller/swagger-preview.nvim",
+  cmd = { "SwaggerPreview", "SwaggerPreviewStop", "SwaggerPreviewToggle" },
+  build = "npm i",
+  config = true,
 }

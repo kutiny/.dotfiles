@@ -40,4 +40,3 @@ vim.api.nvim_create_user_command('Uuid', function()
     uuid = uuid:gsub("%s+$", "")
     vim.api.nvim_put({ uuid }, "c", true, true)
 end, {})
-
