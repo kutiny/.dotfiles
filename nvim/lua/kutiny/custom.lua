@@ -30,3 +30,14 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
+vim.api.nvim_create_user_command('Curdate', function()
+    local date = vim.fn.system({"node", "-e", "process.stdout.write(new Date().toISOString())"})
+    vim.api.nvim_put({ date }, "c", true, true)
+end, {})
+
+vim.api.nvim_create_user_command('Uuid', function()
+    local uuid = vim.fn.system({"uuid"})
+    uuid = uuid:gsub("%s+$", "")
+    vim.api.nvim_put({ uuid }, "c", true, true)
+end, {})
+
