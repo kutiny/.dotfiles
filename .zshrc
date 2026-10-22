@@ -28,7 +28,7 @@ export NVM_DIR="$HOME/.nvm"
 source ~/.dotfiles/pub/shell/.loaderrc
 source ~/.dotfiles/pub/zsh/custom
 
-export TERM=xterm-256color
+#export TERM=xterm-256color
 
 function prompt_node_version() {
     if [ -f package.json ]; then
